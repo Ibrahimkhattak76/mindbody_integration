@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Root Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_root"
+              name="Mindbody"
+              web_icon="mindbody_integration,static/description/icon.png"
+              sequence="1"/>
+
+    <!-- ============================================ -->
+    <!-- Clients Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_clients"
+              name="Clients"
+              parent="menu_mindbody_root"
+              sequence="10"/>
+
+    <!-- Main Client Menu -->
+    <menuitem id="menu_mindbody_client_main"
+              name="Clients"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_client_services"
+              name="Client Services"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_service"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_client_memberships"
+              name="Client Memberships"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_membership"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_client_contracts"
+              name="Client Contracts"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_contract"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_client_purchases"
+              name="Client Purchases"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_purchase"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_client_arrivals"
+              name="Client Arrivals"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_arrival"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_client_duplicates"
+              name="Client Duplicates"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_duplicate"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_client_credit_cards"
+              name="Client Credit Cards"
+              parent="menu_mindbody_clients"
+              action="action_mindbody_client_credit_card"
+              sequence="8"/>
+
+    <!-- Client Related Data -->
+    <menuitem id="menu_mindbody_client_related"
+              name="Related Data"
+              parent="menu_mindbody_clients"
+              sequence="20"/>
+
+    <menuitem id="menu_mindbody_contact_logs"
+              name="Contact Logs"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_contact_log"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_contact_log_comments"
+              name="Contact Log Comments"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_contact_log_comment"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_contact_log_types"
+              name="Contact Log Types"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_contact_log_type"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_contact_log_subtypes"
+              name="Contact Log Subtypes"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_contact_log_subtype"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_formula_notes"
+              name="Formula Notes"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_formula_note"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_cross_regional_associations"
+              name="Cross Regional Associations"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_cross_regional_association"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_waitlist_info"
+              name="Waitlist Info"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_waitlist_info"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_client_reward_transactions"
+              name="Reward Transactions"
+              parent="menu_mindbody_client_related"
+              action="action_mindbody_client_reward_transaction"
+              sequence="8"/>
+
+    <!-- Client Configuration -->
+    <menuitem id="menu_mindbody_client_config"
+              name="Configuration"
+              parent="menu_mindbody_clients"
+              sequence="30"/>
+
+    <menuitem id="menu_mindbody_client_type_config"
+              name="Client Types"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_client_type"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_required_client_field"
+              name="Required Fields"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_required_client_field"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_client_index"
+              name="Client Indexes"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_client_index"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_client_index_value"
+              name="Client Index Values"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_client_index_value"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_custom_client_field"
+              name="Custom Client Fields"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_custom_client_field"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_prospect_stage"
+              name="Prospect Stages"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_prospect_stage"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_prospect_stage_data"
+              name="Prospect Stage Data"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_prospect_stage_data"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_relationship"
+              name="Relationships"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_relationship"
+              sequence="8"/>
+
+    <menuitem id="menu_mindbody_sales_rep"
+              name="Sales Reps"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_sales_rep"
+              sequence="9"/>
+
+    <menuitem id="menu_mindbody_liability"
+              name="Liabilities"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_liability"
+              sequence="10"/>
+
+    <menuitem id="menu_mindbody_client_suspension_info"
+              name="Suspension Info"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_client_suspension_info"
+              sequence="11"/>
+
+    <menuitem id="menu_mindbody_home_location"
+              name="Home Locations"
+              parent="menu_mindbody_client_config"
+              action="action_mindbody_home_location"
+              sequence="12"/>
+
+    <!-- ============================================ -->
+    <!-- Staff Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_staff"
+              name="Staff"
+              parent="menu_mindbody_root"
+              sequence="20"/>
+
+    <menuitem id="menu_mindbody_staff_main"
+              name="Staff Members"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_staff_availability"
+              name="Availabilities"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_availability"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_staff_unavailability"
+              name="Unavailabilities"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_unavailability"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_staff_appointments"
+              name="Staff Appointments"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_appointment"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_staff_session_types"
+              name="Session Types"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_session_type"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_staff_settings"
+              name="Staff Settings"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_settings"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_staff_sales_reps"
+              name="Staff Sales Reps"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_staff_sales_rep"
+              sequence="8"/>
+
+    <menuitem id="menu_mindbody_user_groups"
+              name="User Groups"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_user_group"
+              sequence="9"/>
+
+    <menuitem id="menu_mindbody_permissions"
+              name="Permissions"
+              parent="menu_mindbody_staff"
+              action="action_mindbody_permission"
+              sequence="10"/>
+
+    <!-- ============================================ -->
+    <!-- Products & Services Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_products_services"
+              name="Products &amp; Services"
+              parent="menu_mindbody_root"
+              sequence="25"/>
+
+    <menuitem id="menu_mindbody_products"
+              name="Products"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_product"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_services"
+              name="Services"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_service"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_packages"
+              name="Packages"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_package"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_gift_cards"
+              name="Gift Cards"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_gift_card"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_product_colors"
+              name="Product Colors"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_product_color"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_product_sizes"
+              name="Product Sizes"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_product_size"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_product_inventory"
+              name="Product Inventory"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_product_inventory"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_package_services"
+              name="Package Services"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_package_service"
+              sequence="8"/>
+
+    <menuitem id="menu_mindbody_package_products"
+              name="Package Products"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_package_product"
+              sequence="9"/>
+
+    <menuitem id="menu_mindbody_gift_card_layouts"
+              name="Gift Card Layouts"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_gift_card_layout"
+              sequence="10"/>
+
+    <menuitem id="menu_mindbody_prices"
+              name="Prices"
+              parent="menu_mindbody_products_services"
+              action="action_mindbody_price"
+              sequence="11"/>
+
+    <!-- ============================================ -->
+    <!-- Sales Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_sales"
+              name="Sales"
+              parent="menu_mindbody_root"
+              sequence="30"/>
+
+    <menuitem id="menu_mindbody_sales_main"
+              name="Sales"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_sale"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_sale_items"
+              name="Sale Items"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_sale_items"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_sale_payments"
+              name="Sale Payments"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_sale_payments"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_transactions"
+              name="Transactions"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_transaction"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_shopping_carts"
+              name="Shopping Carts"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_shopping_cart"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_cart_items"
+              name="Cart Items"
+              parent="menu_mindbody_sales"
+              action="action_mindbody_cart_item"
+              sequence="6"/>
+
+    <!-- Sales Configuration -->
+    <menuitem id="menu_mindbody_sales_config"
+              name="Configuration"
+              parent="menu_mindbody_sales"
+              sequence="20"/>
+
+    <menuitem id="menu_mindbody_accepted_card_types"
+              name="Accepted Card Types"
+              parent="menu_mindbody_sales_config"
+              action="action_mindbody_accepted_card_type"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_payment_methods"
+              name="Payment Methods"
+              parent="menu_mindbody_sales_config"
+              action="action_mindbody_payment_method"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_promo_codes"
+              name="Promo Codes"
+              parent="menu_mindbody_sales_config"
+              action="action_mindbody_promo_code"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_discounts"
+              name="Discounts"
+              parent="menu_mindbody_sales_config"
+              action="action_mindbody_discount"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_promo_applicable_items"
+              name="Promo Applicable Items"
+              parent="menu_mindbody_sales_config"
+              action="action_mindbody_promo_applicable_item"
+              sequence="5"/>
+
+    <!-- ============================================ -->
+    <!-- Contracts Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_contracts"
+              name="Contracts"
+              parent="menu_mindbody_root"
+              sequence="35"/>
+
+    <menuitem id="menu_mindbody_contracts_main"
+              name="Contracts"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_contract"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_contract_items"
+              name="Contract Items"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_contract_item"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_autopay_schedules"
+              name="Autopay Schedules"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_autopay_schedule"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_membership_restrictions"
+              name="Membership Restrictions"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_membership_restriction"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_upcoming_autopay_events"
+              name="Upcoming Autopay Events"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_upcoming_autopay_event"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_purchase_contract_status"
+              name="Purchase Contract Status"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_purchase_contract_status"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_purchase_totals"
+              name="Purchase Totals"
+              parent="menu_mindbody_contracts"
+              action="action_mindbody_purchase_totals"
+              sequence="7"/>
+
+    <!-- ============================================ -->
+    <!-- Appointments Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_appointments"
+              name="Appointments"
+              parent="menu_mindbody_root"
+              sequence="40"/>
+
+    <menuitem id="menu_mindbody_appointment_main"
+              name="Appointments"
+              parent="menu_mindbody_appointments"
+              action="action_mindbody_appointment"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_appointment_carts"
+              name="Appointment Carts"
+              parent="menu_mindbody_appointments"
+              action="action_mindbody_appointment_cart"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_bookable_items"
+              name="Bookable Items"
+              parent="menu_mindbody_appointments"
+              action="action_mindbody_bookable_item"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_schedule_items"
+              name="Schedule Items"
+              parent="menu_mindbody_appointments"
+              action="action_mindbody_schedule_item"
+              sequence="4"/>
+
+    <!-- Appointment Configuration -->
+    <menuitem id="menu_mindbody_appointment_config"
+              name="Configuration"
+              parent="menu_mindbody_appointments"
+              sequence="10"/>
+
+    <menuitem id="menu_mindbody_appointment_add_ons"
+              name="Appointment Add Ons"
+              parent="menu_mindbody_appointment_config"
+              action="action_mindbody_appointment_add_on"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_appointment_resources"
+              name="Appointment Resources"
+              parent="menu_mindbody_appointment_config"
+              action="action_mindbody_appointment_resource"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_active_session_times"
+              name="Active Session Times"
+              parent="menu_mindbody_appointment_config"
+              action="action_mindbody_active_session_time"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_appointment_options"
+              name="Appointment Options"
+              parent="menu_mindbody_appointment_config"
+              action="action_mindbody_appointment_option"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_available_dates"
+              name="Available Dates"
+              parent="menu_mindbody_appointment_config"
+              action="action_mindbody_available_date"
+              sequence="5"/>
+
+    <!-- ============================================ -->
+    <!-- Classes & Enrollments Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_classes"
+              name="Classes &amp; Enrollments"
+              parent="menu_mindbody_root"
+              sequence="50"/>
+
+    <menuitem id="menu_mindbody_class_instances"
+              name="Classes"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_class_instance"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_class_schedules"
+              name="Class Schedules"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_class_schedule"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_enrollments"
+              name="Enrollments"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_enrollment"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_courses"
+              name="Courses"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_course"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_semesters"
+              name="Semesters"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_semester"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_class_visits"
+              name="Class Visits"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_class_visit"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_waitlist"
+              name="Waitlist"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_waitlist_entry"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_client_classes"
+              name="Client Classes"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_client_class"
+              sequence="8"/>
+
+    <!-- Class Cart -->
+    <menuitem id="menu_mindbody_class_carts"
+              name="Class Carts"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_class_cart"
+              sequence="9"/>
+
+    <menuitem id="menu_mindbody_visit_carts"
+              name="Visit Carts"
+              parent="menu_mindbody_classes"
+              action="action_mindbody_visit_cart"
+              sequence="10"/>
+
+    <!-- Class Configuration -->
+    <menuitem id="menu_mindbody_class_config"
+              name="Configuration"
+              parent="menu_mindbody_classes"
+              sequence="20"/>
+
+    <menuitem id="menu_mindbody_class_descriptions"
+              name="Class Descriptions"
+              parent="menu_mindbody_class_config"
+              action="action_mindbody_class_description"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_class_levels"
+              name="Class Levels"
+              parent="menu_mindbody_class_config"
+              action="action_mindbody_class_level"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_booking_windows"
+              name="Booking Windows"
+              parent="menu_mindbody_class_config"
+              action="action_mindbody_booking_window"
+              sequence="3"/>
+
+    <!-- ============================================ -->
+    <!-- Pick-a-Spot Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_pickaspot"
+              name="Pick-a-Spot"
+              parent="menu_mindbody_root"
+              sequence="60"/>
+
+    <menuitem id="menu_mindbody_pickaspot_classes"
+              name="Classes"
+              parent="menu_mindbody_pickaspot"
+              action="action_mindbody_pickaspot_class"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_pickaspot_reservations"
+              name="Reservations"
+              parent="menu_mindbody_pickaspot"
+              action="action_mindbody_pickaspot_reservation"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_pickaspot_spots"
+              name="Spots"
+              parent="menu_mindbody_pickaspot"
+              action="action_mindbody_pickaspot_spots"
+              sequence="3"/>
+
+
+    <!-- ============================================ -->
+    <!-- Configuration Menu -->
+    <!-- ============================================ -->
+    <menuitem id="menu_mindbody_configuration"
+              name="Configuration"
+              parent="menu_mindbody_root"
+              sequence="300"/>
+
+    <!-- Site Configuration -->
+    <menuitem id="menu_mindbody_site_config"
+              name="Site"
+              parent="menu_mindbody_configuration"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_site"
+              name="Sites"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_site"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_location"
+              name="Locations"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_location"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_program"
+              name="Programs"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_program"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_session_type"
+              name="Session Types"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_session_type"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_category"
+              name="Categories"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_category"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_sub_category"
+              name="Sub Categories"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_sub_category"
+              sequence="6"/>
+
+    <menuitem id="menu_mindbody_resource"
+              name="Resources"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_resource"
+              sequence="7"/>
+
+    <menuitem id="menu_mindbody_resource_availability"
+              name="Resource Availabilities"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_resource_availability"
+              sequence="8"/>
+
+    <menuitem id="menu_mindbody_gender"
+              name="Gender Options"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_gender"
+              sequence="9"/>
+
+    <menuitem id="menu_mindbody_membership"
+              name="Memberships"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_membership"
+              sequence="10"/>
+
+    <menuitem id="menu_mindbody_mobile_provider"
+              name="Mobile Providers"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_mobile_provider"
+              sequence="11"/>
+
+    <menuitem id="menu_mindbody_payment_type"
+              name="Payment Types"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_payment_type"
+              sequence="12"/>
+
+    <menuitem id="menu_mindbody_lead_channel"
+              name="Lead Channels"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_lead_channel"
+              sequence="13"/>
+
+    <menuitem id="menu_mindbody_pricing_relationship"
+              name="Pricing Relationships"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_pricing_relationship"
+              sequence="14"/>
+
+    <menuitem id="menu_mindbody_amenity"
+              name="Amenities"
+              parent="menu_mindbody_site_config"
+              action="action_mindbody_amenity"
+              sequence="15"/>
+
+    <!-- System Configuration -->
+    <menuitem id="menu_mindbody_system_config"
+              name="System"
+              parent="menu_mindbody_configuration"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_activation_code"
+              name="Activation Codes"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_activation_code"
+              sequence="1"/>
+
+    <menuitem id="menu_mindbody_liability_waiver"
+              name="Liability Waivers"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_liability_waiver"
+              sequence="2"/>
+
+    <menuitem id="menu_mindbody_pagination_response"
+              name="Pagination Responses"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_pagination_response"
+              sequence="3"/>
+
+    <menuitem id="menu_mindbody_error_info"
+              name="Error Info"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_error_info"
+              sequence="4"/>
+
+    <menuitem id="menu_mindbody_pagination_details"
+              name="Pagination Details"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_pagination_details"
+              sequence="5"/>
+
+    <menuitem id="menu_mindbody_response_details"
+              name="Response Details"
+              parent="menu_mindbody_system_config"
+              action="action_mindbody_response_details"
+              sequence="6"/>
+
+
+</odoo>

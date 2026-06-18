@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Purchase Totals -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_purchase_totals_tree" model="ir.ui.view">
+        <field name="name">mindbody.purchase.totals.list</field>
+        <field name="model">mindbody.purchase.totals</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="purchase_id"/>
+                <field name="total"/>
+                <field name="sub_total"/>
+                <field name="discount"/>
+                <field name="tax"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_purchase_totals_form" model="ir.ui.view">
+        <field name="name">mindbody.purchase.totals.form</field>
+        <field name="model">mindbody.purchase.totals</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="purchase_id"/>
+                        <field name="total"/>
+                        <field name="sub_total"/>
+                        <field name="discount"/>
+                        <field name="tax"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_purchase_totals" model="ir.actions.act_window">
+        <field name="name">Purchase Totals</field>
+        <field name="res_model">mindbody.purchase.totals</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

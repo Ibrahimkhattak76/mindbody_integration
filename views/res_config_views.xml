@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_mindbody" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.mindbody.integration</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="inside">
+                <setting string="Mindbody Integration"
+                         help="Synchronize Odoo with Mindbody"
+                         id="mindbody_integration_setting">
+
+                    <field name="mindbody_enabled"/>
+
+                    <div invisible="not mindbody_enabled" id="mindbody_params">
+
+                        <div class="content-group mt16">
+                            <label for="mindbody_api_key" class="o_light_label mr8"/>
+                            <field name="mindbody_api_key"
+                                   required="mindbody_enabled"/>
+                        </div>
+
+                        <div class="content-group mt16">
+                            <label for="mindbody_site_id" class="o_light_label mr8"/>
+                            <field name="mindbody_site_id"
+                                   required="mindbody_enabled"/>
+                        </div>
+
+                        <div class="content-group mt16">
+                            <label for="mindbody_username" class="o_light_label mr8"/>
+                            <field name="mindbody_username"
+                                   required="mindbody_enabled"/>
+                        </div>
+
+                        <div class="content-group mt16">
+                            <label for="mindbody_password" class="o_light_label mr8"/>
+                            <field name="mindbody_password"
+                                   password="True"
+                                   required="mindbody_enabled"/>
+                        </div>
+
+                    </div>
+
+                </setting>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

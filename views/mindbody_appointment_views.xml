@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Appointment -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_appointment_tree" model="ir.ui.view">
+        <field name="name">mindbody.appointment.list</field>
+        <field name="model">mindbody.appointment</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="appointment_id"/>
+                <field name="start_date_time"/>
+                <field name="client_id"/>
+                <field name="staff_id"/>
+                <field name="status"/>
+                <field name="duration"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_appointment_form" model="ir.ui.view">
+        <field name="name">mindbody.appointment.form</field>
+        <field name="model">mindbody.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="appointment_id"/>
+                            <field name="gender_preference"/>
+                            <field name="duration"/>
+                            <field name="provider_id"/>
+                            <field name="status"/>
+                            <field name="start_date_time"/>
+                            <field name="end_date_time"/>
+                            <field name="notes"/>
+                        </group>
+                        <group>
+                            <field name="partner_external_id"/>
+                            <field name="staff_requested"/>
+                            <field name="program_id"/>
+                            <field name="session_type_id"/>
+                            <field name="location_id"/>
+                            <field name="staff_id"/>
+                            <field name="staff_external_id"/>
+                            <field name="client_id"/>
+                            <field name="first_appointment"/>
+                            <field name="is_waitlist"/>
+                            <field name="waitlist_entry_id"/>
+                            <field name="client_service_id"/>
+                            <field name="online_description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Resources">
+                            <field name="resource_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Add Ons">
+                            <field name="add_on_ids" mode="list">
+                                <list>
+                                    <field name="add_on_id"/>
+                                    <field name="name"/>
+                                    <field name="staff_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Itinerary">
+                            <field name="itinerary_ids" mode="list">
+                                <list>
+                                    <field name="appointment_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="duration"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Appointment Add On -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_appointment_add_on_tree" model="ir.ui.view">
+        <field name="name">mindbody.appointment.add.on.list</field>
+        <field name="model">mindbody.appointment.add.on</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="appointment_id"/>
+                <field name="add_on_id"/>
+                <field name="name"/>
+                <field name="staff_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_appointment_add_on_form" model="ir.ui.view">
+        <field name="name">mindbody.appointment.add.on.form</field>
+        <field name="model">mindbody.appointment.add.on</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="appointment_id"/>
+                        <field name="appointment_cart_id"/>
+                        <field name="staff_appointment_id"/>
+                        <field name="add_on_id"/>
+                        <field name="name"/>
+                        <field name="staff_id"/>
+                        <field name="type_id"/>
+                        <field name="num_deducted"/>
+                        <field name="category_id"/>
+                        <field name="category"/>
+                        <field name="session_type_id"/>
+                        <field name="start_time"/>
+                        <field name="duration_override_in_minutes"/>
+                        <field name="notes"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Resources">
+                            <field name="resource_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Appointment Resource -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_appointment_resource_tree" model="ir.ui.view">
+        <field name="name">mindbody.appointment.resource.list</field>
+        <field name="model">mindbody.appointment.resource</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="appointment_id"/>
+                <field name="resource_id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_appointment_resource_form" model="ir.ui.view">
+        <field name="name">mindbody.appointment.resource.form</field>
+        <field name="model">mindbody.appointment.resource</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="appointment_id"/>
+                        <field name="appointment_cart_id"/>
+                        <field name="staff_appointment_id"/>
+                        <field name="add_on_id"/>
+                        <field name="resource_id"/>
+                        <field name="name"/>
+                        <field name="resource_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Bookable Item -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_bookable_item_tree" model="ir.ui.view">
+        <field name="name">mindbody.bookable.item.list</field>
+        <field name="model">mindbody.bookable.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="bookable_item_id"/>
+                <field name="staff_id"/>
+                <field name="session_type_id"/>
+                <field name="start_date_time"/>
+                <field name="end_date_time"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_bookable_item_form" model="ir.ui.view">
+        <field name="name">mindbody.bookable.item.form</field>
+        <field name="model">mindbody.bookable.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="bookable_item_id"/>
+                        <field name="staff_id"/>
+                        <field name="session_type_id"/>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="bookable_end_date_time"/>
+                        <field name="location_id"/>
+                        <field name="prep_time"/>
+                        <field name="finish_time"/>
+                        <field name="is_masked"/>
+                        <field name="show_public"/>
+                    </group>
+                    <notebook>
+                        <page string="Programs">
+                            <field name="program_ids" mode="list">
+                                <list>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Resource Availabilities">
+                            <field name="resource_availability_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="end_date_time"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Schedule Item -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_schedule_item_tree" model="ir.ui.view">
+        <field name="name">mindbody.schedule.item.list</field>
+        <field name="model">mindbody.schedule.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="staff_member_ids"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_schedule_item_form" model="ir.ui.view">
+        <field name="name">mindbody.schedule.item.form</field>
+        <field name="model">mindbody.schedule.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="pagination_response_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Staff Members">
+                            <field name="staff_member_ids" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Active Session Time -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_active_session_time_tree" model="ir.ui.view">
+        <field name="name">mindbody.active.session.time.list</field>
+        <field name="model">mindbody.active.session.time</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="time"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_active_session_time_form" model="ir.ui.view">
+        <field name="name">mindbody.active.session.time.form</field>
+        <field name="model">mindbody.active.session.time</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="time"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Appointment Option -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_appointment_option_tree" model="ir.ui.view">
+        <field name="name">mindbody.appointment.option.list</field>
+        <field name="model">mindbody.appointment.option</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="display_name"/>
+                <field name="name"/>
+                <field name="value"/>
+                <field name="option_type"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_appointment_option_form" model="ir.ui.view">
+        <field name="name">mindbody.appointment.option.form</field>
+        <field name="model">mindbody.appointment.option</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="display_name"/>
+                        <field name="name"/>
+                        <field name="value"/>
+                        <field name="option_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Available Date -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_available_date_tree" model="ir.ui.view">
+        <field name="name">mindbody.available.date.list</field>
+        <field name="model">mindbody.available.date</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_available_date_form" model="ir.ui.view">
+        <field name="name">mindbody.available.date.form</field>
+        <field name="model">mindbody.available.date</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">mindbody.appointment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_appointment_add_on" model="ir.actions.act_window">
+        <field name="name">Appointment Add Ons</field>
+        <field name="res_model">mindbody.appointment.add.on</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_appointment_resource" model="ir.actions.act_window">
+        <field name="name">Appointment Resources</field>
+        <field name="res_model">mindbody.appointment.resource</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_bookable_item" model="ir.actions.act_window">
+        <field name="name">Bookable Items</field>
+        <field name="res_model">mindbody.bookable.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_schedule_item" model="ir.actions.act_window">
+        <field name="name">Schedule Items</field>
+        <field name="res_model">mindbody.schedule.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_active_session_time" model="ir.actions.act_window">
+        <field name="name">Active Session Times</field>
+        <field name="res_model">mindbody.active.session.time</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_appointment_option" model="ir.actions.act_window">
+        <field name="name">Appointment Options</field>
+        <field name="res_model">mindbody.appointment.option</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_available_date" model="ir.actions.act_window">
+        <field name="name">Available Dates</field>
+        <field name="res_model">mindbody.available.date</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- Menu Items -->
+</odoo>

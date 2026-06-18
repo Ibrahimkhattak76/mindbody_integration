@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Transaction -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_transaction_tree" model="ir.ui.view">
+        <field name="name">mindbody.transaction.list</field>
+        <field name="model">mindbody.transaction</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>-->
+
+                </header>
+                <field name="transaction_id"/>
+                <field name="sale_id"/>
+                <field name="client_id"/>
+                <field name="amount"/>
+                <field name="status"/>
+                <field name="settled"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_transaction_form" model="ir.ui.view">
+        <field name="name">mindbody.transaction.form</field>
+        <field name="model">mindbody.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="transaction_id"/>
+                            <field name="sale_id"/>
+                            <field name="client_id"/>
+                            <field name="cart_id"/>
+                            <field name="amount"/>
+                            <field name="settled"/>
+                            <field name="transaction_time"/>
+                        </group>
+                        <group>
+                            <field name="auth_time"/>
+                            <field name="location_id"/>
+                            <field name="merchant_id"/>
+                            <field name="terminal_id"/>
+                            <field name="pagination_response_id"/>
+                            <field name="authentication_url"/>
+                            <field name="status"/>
+
+                        </group>
+                    </group>
+
+                    <!-- Card and Payment Details -->
+                    <group string="Card and Payment Details">
+                        <group>
+                            <field name="card_type"/>
+                            <field name="cc_last_four"/>
+                            <field name="cc_swiped"/>
+                            <field name="card_expiration_month"/>
+                            <field name="card_expiration_year"/>
+                        </group>
+                        <group>
+                            <field name="ach_last_four"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_transaction" model="ir.actions.act_window">
+        <field name="name">Transactions</field>
+        <field name="res_model">mindbody.transaction</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

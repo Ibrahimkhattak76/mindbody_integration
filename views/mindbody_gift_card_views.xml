@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <!-- ============================================ -->
+    <!-- Gift Card                                    -->
+    <!-- ============================================ -->
+
+    <!-- List View -->
+    <record id="view_mindbody_gift_card_tree" model="ir.ui.view">
+        <field name="name">mindbody.gift.card.list</field>
+        <field name="model">mindbody.gift.card</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--
+                    <button name="synchronize"
+                            string="Sync"
+                            type="object"
+                            class="btn btn-secondary"
+                            display="always"/>
+                    -->
+                </header>
+                <field name="gift_card_id"/>
+                <field name="description"/>
+                <field name="card_value"/>
+                <field name="sale_price"/>
+                <field name="sold_online"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_mindbody_gift_card_form" model="ir.ui.view">
+        <field name="name">mindbody.gift.card.form</field>
+        <field name="model">mindbody.gift.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="gift_card_id"/>
+                            <field name="description"/>
+                            <field name="card_value"/>
+                            <field name="sale_price"/>
+                            <field name="sold_online"/>
+                            <field name="editable_by_consumer"/>
+                            <field name="display_logo"/>
+                            <field name="barcode_id"/>
+                            <field name="gift_card_terms"/>
+                            <field name="contact_info"/>
+                        </group>
+                        <group>
+                            <field name="remaining_balance"/>
+                            <field name="value"/>
+                            <field name="amount_paid"/>
+                            <field name="sale_id"/>
+                            <field name="email_receipt"/>
+                            <field name="location_ids"/>
+                            <field name="membership_restriction_ids"/>
+                        </group>
+                    </group>
+
+                    <!-- Purchaser & Recipient -->
+                    <group string="Purchaser and Recipient">
+                        <group>
+                            <field name="from_name"/>
+                            <field name="purchaser_client_id"/>
+                            <field name="purchaser_email"/>
+                        </group>
+                        <group>
+                            <field name="recipient_email"/>
+                        </group>
+                    </group>
+
+                    <!-- Additional Details -->
+                    <notebook>
+                        <page string="Layouts">
+                            <field name="layout_ids" mode="list">
+                                <list>
+                                    <field name="layout_id"/>
+                                    <field name="layout_name"/>
+                                    <field name="layout_url"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Payment Failures">
+                            <field name="payment_processing_failure_ids" mode="list">
+                                <list>
+                                    <field name="error_type"/>
+                                    <field name="message"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Gift Card Layout -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_gift_card_layout_tree" model="ir.ui.view">
+        <field name="name">mindbody.gift.card.layout.list</field>
+        <field name="model">mindbody.gift.card.layout</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="gift_card_id"/>
+                <field name="layout_id"/>
+                <field name="layout_name"/>
+                <field name="layout_url"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_gift_card_layout_form" model="ir.ui.view">
+        <field name="name">mindbody.gift.card.layout.form</field>
+        <field name="model">mindbody.gift.card.layout</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="gift_card_id"/>
+                        <field name="layout_id"/>
+                        <field name="layout_name"/>
+                        <field name="layout_url"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_gift_card" model="ir.actions.act_window">
+        <field name="name">Gift Cards</field>
+        <field name="res_model">mindbody.gift.card</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_gift_card_layout" model="ir.actions.act_window">
+        <field name="name">Gift Card Layouts</field>
+        <field name="res_model">mindbody.gift.card.layout</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

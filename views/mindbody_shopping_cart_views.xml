@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Shopping Cart -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_shopping_cart_tree" model="ir.ui.view">
+        <field name="name">mindbody.shopping.cart.list</field>
+        <field name="model">mindbody.shopping.cart</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="cart_id"/>
+                <field name="sub_total"/>
+                <field name="discount_total"/>
+                <field name="tax_total"/>
+                <field name="grand_total"/>
+                <field name="sale_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_shopping_cart_form" model="ir.ui.view">
+        <field name="name">mindbody.shopping.cart.form</field>
+        <field name="model">mindbody.shopping.cart</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="cart_id"/>
+                        <field name="sub_total"/>
+                        <field name="discount_total"/>
+                        <field name="tax_total"/>
+                        <field name="grand_total"/>
+                        <field name="sale_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Cart Items">
+                            <field name="cart_item_ids" mode="list">
+                                <list>
+                                    <field name="item_id"/>
+                                    <field name="quantity"/>
+                                    <field name="discount_amount"/>
+                                    <field name="sales_notes"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Classes">
+                            <field name="class_ids" mode="list">
+                                <list>
+                                    <field name="class_id"/>
+                                    <field name="class_name"/>
+                                    <field name="start_date_time"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Appointments">
+                            <field name="appointment_ids" mode="list">
+                                <list>
+                                    <field name="appointment_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="staff_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Enrollments">
+                            <field name="enrollment_ids" mode="list">
+                                <list>
+                                    <field name="enrollment_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Transactions">
+                            <field name="transaction_ids" mode="list">
+                                <list>
+                                    <field name="transaction_id"/>
+                                    <field name="amount"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Cart Item -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_cart_item_tree" model="ir.ui.view">
+        <field name="name">mindbody.cart.item.list</field>
+        <field name="model">mindbody.cart.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="cart_id"/>
+                <field name="item_id"/>
+                <field name="quantity"/>
+                <field name="discount_amount"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_cart_item_form" model="ir.ui.view">
+        <field name="name">mindbody.cart.item.form</field>
+        <field name="model">mindbody.cart.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="cart_id"/>
+                        <field name="visit_ids"/>
+                        <field name="quantity"/>
+                        <field name="appointment_ids"/>
+                        <field name="item_id"/>
+                        <field name="sales_notes"/>
+                        <field name="discount_amount"/>
+                        <field name="item"/>
+
+
+                    </group>
+                    <notebook>
+                        <page string="Appointments">
+                            <field name="appointment_cart_ids" mode="list">
+                                <list editable="bottom">
+                                    <field name="appointment_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="staff_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Appointment Cart -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_appointment_cart_tree" model="ir.ui.view">
+        <field name="name">mindbody.appointment.cart.list</field>
+        <field name="model">mindbody.appointment.cart</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="appointment_id"/>
+                <field name="start_date_time"/>
+                <field name="client_id"/>
+                <field name="staff_id"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_appointment_cart_form" model="ir.ui.view">
+        <field name="name">mindbody.appointment.cart.form</field>
+        <field name="model">mindbody.appointment.cart</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="cart_id"/>
+                            <field name="cart_item_id"/>
+                            <field name="appointment_id"/>
+                            <field name="status"/>
+                            <field name="start_date_time"/>
+                            <field name="end_date_time"/>
+                            <field name="duration"/>
+                            <field name="preparation_time"/>
+                            <field name="finish_time"/>
+                            <field name="location_id"/>
+                        </group>
+                        <group>
+                            <field name="session_type_id"/>
+                            <field name="program_id"/>
+                            <field name="client_id"/>
+                            <field name="client_service_id"/>
+                            <field name="first_appointment"/>
+                            <field name="is_waitlist"/>
+                            <field name="waitlist_entry_id"/>
+                            <field name="notes"/>
+                            <field name="online_description"/>
+                        </group>
+                    </group>
+
+                    <!-- Staff and Provider -->
+                    <group string="Staff and Provider">
+                        <group>
+                            <field name="staff_id"/>
+                            <field name="staff_external_id"/>
+                            <field name="staff_requested"/>
+                            <field name="provider_id"/>
+                        </group>
+                        <group>
+                            <field name="gender_preference"/>
+                            <field name="partner_external_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Additional Details -->
+                    <notebook>
+                        <page string="Resources">
+                            <field name="resource_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Add Ons">
+                            <field name="add_on_ids" mode="list">
+                                <list>
+                                    <field name="add_on_id"/>
+                                    <field name="name"/>
+                                    <field name="staff_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Class Cart -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_cart_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.cart.list</field>
+        <field name="model">mindbody.class.cart</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="class_id"/>
+                <field name="class_name"/>
+                <field name="start_date_time"/>
+                <field name="location_id"/>
+                <field name="staff_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_cart_form" model="ir.ui.view">
+        <field name="name">mindbody.class.cart.form</field>
+        <field name="model">mindbody.class.cart</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="cart_id"/>
+                            <field name="class_id"/>
+                            <field name="class_schedule_id"/>
+                            <field name="class_description_id"/>
+                            <field name="location_id"/>
+                            <field name="resource_id"/>
+                            <field name="staff_id"/>
+                            <field name="semester_id"/>
+                            <field name="start_date_time"/>
+                            <field name="end_date_time"/>
+                            <field name="last_modified_date_time"/>
+                        </group>
+                        <group>
+                            <field name="booking_status"/>
+                            <field name="booking_window_id"/>
+                            <field name="is_available"/>
+                            <field name="is_enrolled"/>
+                            <field name="is_canceled"/>
+                            <field name="is_waitlist_available"/>
+                            <field name="hide_cancel"/>
+                            <field name="substitute"/>
+                            <field name="active"/>
+                            <field name="virtual_stream_link"/>
+                        </group>
+                    </group>
+
+                    <!-- Capacity and Waitlist -->
+                    <group string="Capacity and Waitlist">
+                        <group>
+                            <field name="max_capacity"/>
+                            <field name="web_capacity"/>
+                            <field name="total_booked"/>
+                            <field name="total_signed_in"/>
+                            <field name="web_booked"/>
+                        </group>
+                        <group>
+                            <field name="total_booked_waitlist"/>
+                            <field name="wait_list_size"/>
+                        </group>
+                    </group>
+
+                    <!-- Notes and Theme -->
+                    <group string="Notes and Theme">
+                        <group>
+                            <field name="class_notes"/>
+                        </group>
+                        <group>
+                            <field name="theme_name"/>
+                        </group>
+                    </group>
+
+                    <!-- Additional Details -->
+                    <notebook>
+                        <page string="Visits">
+                            <field name="visit_ids" mode="list">
+                                <list>
+                                    <field name="visit_id"/>
+                                    <field name="client_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="signed_in"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clients">
+                            <field name="client_ids" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Visit Cart -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_visit_cart_tree" model="ir.ui.view">
+        <field name="name">mindbody.visit.cart.list</field>
+        <field name="model">mindbody.visit.cart</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="visit_id"/>
+                <field name="client_id"/>
+                <field name="start_date_time"/>
+                <field name="signed_in"/>
+                <field name="action"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_visit_cart_form" model="ir.ui.view">
+        <field name="name">mindbody.visit.cart.form</field>
+        <field name="model">mindbody.visit.cart</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_cart_id"/>
+                        <field name="appointment_id"/>
+                        <field name="appointment_gender_preference"/>
+                        <field name="appointment_status"/>
+                        <field name="class_id"/>
+                        <field name="client_id"/>
+                        <field name="client_photo_url"/>
+                        <field name="client_unique_id"/>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="visit_id"/>
+                        <field name="last_modified_date_time"/>
+                        <field name="late_cancelled"/>
+                        <field name="site_id"/>
+                        <field name="location_id"/>
+                        <field name="make_up"/>
+                        <field name="name"/>
+                        <field name="service_id"/>
+                        <field name="service_name"/>
+                        <field name="service_id_ref"/>
+                        <field name="product_id"/>
+                        <field name="signed_in"/>
+                        <field name="staff_id"/>
+                        <field name="web_signup"/>
+                        <field name="action"/>
+                        <field name="missed"/>
+                        <field name="visit_type"/>
+                        <field name="type_group"/>
+                        <field name="type_taken"/>
+                        <field name="cross_regional_booking_performed"/>
+                        <field name="waitlist_entry_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_shopping_cart" model="ir.actions.act_window">
+        <field name="name">Shopping Carts</field>
+        <field name="res_model">mindbody.shopping.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_cart_item" model="ir.actions.act_window">
+        <field name="name">Cart Items</field>
+        <field name="res_model">mindbody.cart.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_appointment_cart" model="ir.actions.act_window">
+        <field name="name">Cart Appointments</field>
+        <field name="res_model">mindbody.appointment.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_class_cart" model="ir.actions.act_window">
+        <field name="name">Cart Classes</field>
+        <field name="res_model">mindbody.class.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_visit_cart" model="ir.actions.act_window">
+        <field name="name">Cart Visits</field>
+        <field name="res_model">mindbody.visit.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

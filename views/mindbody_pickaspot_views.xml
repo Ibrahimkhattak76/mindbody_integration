@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Pick-a-Spot Class -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pickaspot_class_tree" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.class.list</field>
+        <field name="model">mindbody.pickaspot.class</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_id"/>
+                <field name="class_name"/>
+                <field name="class_start_time"/>
+                <field name="location_id"/>
+                <field name="class_maximum_capacity"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pickaspot_class_form" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.class.form</field>
+        <field name="model">mindbody.pickaspot.class</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="site_id"/>
+                        <field name="location_id"/>
+                        <field name="class_id"/>
+                        <field name="class_external_id"/>
+                        <field name="class_name"/>
+                        <field name="class_start_time"/>
+                        <field name="class_end_time"/>
+                        <field name="class_maximum_capacity"/>
+                        <field name="room_id"/>
+                        <field name="spots_id"/>
+                        <field name="pagination_id"/>
+                        <field name="response_details_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Reservations">
+                            <field name="reservation_ids" mode="list">
+                                <list>
+                                    <field name="reservation_id"/>
+                                    <field name="member_external_id"/>
+                                    <field name="is_confirmed"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Pick-a-Spot Spots -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pickaspot_spots_tree" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.spots.list</field>
+        <field name="model">mindbody.pickaspot.spots</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="reserved_spot_numbers"/>
+                <field name="available_spot_numbers"/>
+                <field name="unavailable_spot_numbers"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pickaspot_spots_form" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.spots.form</field>
+        <field name="model">mindbody.pickaspot.spots</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="reserved_spot_numbers"/>
+                        <field name="available_spot_numbers"/>
+                        <field name="unavailable_spot_numbers"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Pick-a-Spot Reservation -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pickaspot_reservation_tree" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.reservation.list</field>
+        <field name="model">mindbody.pickaspot.reservation</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_id"/>
+                <field name="reservation_id"/>
+                <field name="member_external_id"/>
+                <field name="reservation_type"/>
+                <field name="is_confirmed"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pickaspot_reservation_form" model="ir.ui.view">
+        <field name="name">mindbody.pickaspot.reservation.form</field>
+        <field name="model">mindbody.pickaspot.reservation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_id"/>
+                        <field name="reservation_id"/>
+                        <field name="reservation_external_id"/>
+                        <field name="class_id_str"/>
+                        <field name="class_external_id"/>
+                        <field name="member_external_id"/>
+                        <field name="reservation_type"/>
+                        <field name="spots_id"/>
+                        <field name="is_confirmed"/>
+                        <field name="confirmation_date"/>
+                        <field name="pagination_id"/>
+                        <field name="response_details_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Pagination Details -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pagination_details_tree" model="ir.ui.view">
+        <field name="name">mindbody.pagination.details.list</field>
+        <field name="model">mindbody.pagination.details</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="page_number"/>
+                <field name="page_size"/>
+                <field name="total_result_count"/>
+                <field name="total_page_count"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pagination_details_form" model="ir.ui.view">
+        <field name="name">mindbody.pagination.details.form</field>
+        <field name="model">mindbody.pagination.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="page_number"/>
+                        <field name="page_size"/>
+                        <field name="total_result_count"/>
+                        <field name="total_page_count"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Response Details -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_response_details_tree" model="ir.ui.view">
+        <field name="name">mindbody.response.details.list</field>
+        <field name="model">mindbody.response.details</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="status"/>
+                <field name="transaction_id"/>
+                <field name="message"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_response_details_form" model="ir.ui.view">
+        <field name="name">mindbody.response.details.form</field>
+        <field name="model">mindbody.response.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="status"/>
+                        <field name="transaction_id"/>
+                        <field name="message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_pickaspot_class" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Classes</field>
+        <field name="res_model">mindbody.pickaspot.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_pickaspot_spots" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Spots</field>
+        <field name="res_model">mindbody.pickaspot.spots</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_pickaspot_reservation" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Reservations</field>
+        <field name="res_model">mindbody.pickaspot.reservation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_pagination_details" model="ir.actions.act_window">
+        <field name="name">Pagination Details</field>
+        <field name="res_model">mindbody.pagination.details</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_response_details" model="ir.actions.act_window">
+        <field name="name">Response Details</field>
+        <field name="res_model">mindbody.response.details</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- Menu Items -->
+</odoo>

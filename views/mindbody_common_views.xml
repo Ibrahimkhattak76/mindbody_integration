@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Pagination Response -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pagination_response_tree" model="ir.ui.view">
+        <field name="name">mindbody.pagination.response.list</field>
+        <field name="model">mindbody.pagination.response</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="requested_limit"/>
+                <field name="requested_offset"/>
+                <field name="page_size"/>
+                <field name="total_results"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pagination_response_form" model="ir.ui.view">
+        <field name="name">mindbody.pagination.response.form</field>
+        <field name="model">mindbody.pagination.response</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="requested_limit"/>
+                        <field name="requested_offset"/>
+                        <field name="page_size"/>
+                        <field name="total_results"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Error Info -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_error_info_tree" model="ir.ui.view">
+        <field name="name">mindbody.error.info.list</field>
+        <field name="model">mindbody.error.info</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="error_type"/>
+                <field name="message"/>
+                <field name="code"/>
+                <field name="reason_code"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_error_info_form" model="ir.ui.view">
+        <field name="name">mindbody.error.info.form</field>
+        <field name="model">mindbody.error.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="error_type"/>
+                        <field name="message"/>
+                        <field name="code"/>
+                        <field name="reason_code"/>
+                        <field name="authentication_redirect_url"/>
+                        <field name="operation"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_pagination_response" model="ir.actions.act_window">
+        <field name="name">Pagination Responses</field>
+        <field name="res_model">mindbody.pagination.response</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_error_info" model="ir.actions.act_window">
+        <field name="name">Error Info</field>
+        <field name="res_model">mindbody.error.info</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,589 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--        Staff - List & Form View                               -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <record id="view_mindbody_staff_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.list</field>
+        <field name="model">mindbody.staff</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="staff_id"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="display_name"/>
+                <field name="email"/>
+                <field name="appointment_instructor"/>
+                <field name="class_teacher"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================ -->
+    <!--         Staff - Form View                         -->
+    <!-- ================================================ -->
+
+    <record id="view_mindbody_staff_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.form</field>
+        <field name="model">mindbody.staff</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="staff_id"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="display_name"/>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="bio"/>
+                        </group>
+
+                        <group string="Role &amp; Details">
+                            <field name="image_url"/>
+                            <field name="appointment_instructor"/>
+                            <field name="class_teacher"/>
+                            <field name="class_assistant"/>
+                            <field name="independent_contractor"/>
+                            <field name="is_male"/>
+                            <field name="sort_order"/>
+                        </group>
+                    </group>
+
+                    <group string="Contact Information">
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="state"/>
+                        <field name="postal_code"/>
+                        <field name="country"/>
+                        <field name="work_phone"/>
+                        <field name="home_phone"/>
+                        <field name="mobile_phone"/>
+                    </group>
+
+                    <group string="Employment">
+                        <field name="employment_start"/>
+                        <field name="employment_end"/>
+                        <field name="emp_id"/>
+                        <field name="provider_ids"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Settings">
+                            <field name="staff_settings_id"/>
+                            <group>
+                                <!-- todo fx -->
+                                <!-- <field name="staff_settings_id/use_staff_nicknames"/> -->
+                                <!-- <field name="staff_settings_id/show_staff_last_names_on_schedules"/> -->
+                            </group>
+                        </page>
+
+                        <page string="Appointments">
+                            <field name="appointment_ids" mode="list">
+                                <list>
+                                    <field name="appointment_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="client_id"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Unavailabilities">
+                            <field name="unavailability_ids" mode="list">
+                                <list>
+                                    <field name="unavailability_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="end_date_time"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Availabilities">
+                            <field name="availability_ids" mode="list">
+                                <list>
+                                    <field name="availability_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="end_date_time"/>
+                                    <field name="location_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Staff Settings -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_staff_settings_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.settings.list</field>
+        <field name="model">mindbody.staff.settings</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="staff_id"/>
+                <field name="use_staff_nicknames"/>
+                <field name="show_staff_last_names_on_schedules"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_staff_settings_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.settings.form</field>
+        <field name="model">mindbody.staff.settings</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="staff_id"/>
+                        <field name="use_staff_nicknames"/>
+                        <field name="show_staff_last_names_on_schedules"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--        Staff Appointment - List & Form View                    -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <record id="view_mindbody_staff_appointment_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.appointment.list</field>
+        <field name="model">mindbody.staff.appointment</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+              -->
+                </header>
+                <field name="staff_id"/>
+                <field name="appointment_id"/>
+                <field name="start_date_time"/>
+                <field name="client_id"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================ -->
+    <!--         Staff Appointment - Form View             -->
+    <!-- ================================================ -->
+
+    <record id="view_mindbody_staff_appointment_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.appointment.form</field>
+        <field name="model">mindbody.staff.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="staff_id"/>
+                            <field name="gender_preference"/>
+                            <field name="duration"/>
+                            <field name="provider_id"/>
+                            <field name="appointment_id"/>
+                            <field name="status"/>
+                            <field name="start_date_time"/>
+                            <field name="end_date_time"/>
+                            <field name="notes"/>
+                            <field name="partner_external_id"/>
+                        </group>
+
+                        <group string="Request &amp; Service Details">
+                            <field name="staff_requested"/>
+                            <field name="program_id"/>
+                            <field name="session_type_id"/>
+                            <field name="location_id"/>
+                            <field name="staff_id_int"/>
+                            <field name="client_id"/>
+                            <field name="first_appointment"/>
+                            <field name="is_waitlist"/>
+                            <field name="waitlist_entry_id"/>
+                            <field name="client_service_id"/>
+                            <field name="online_description"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Resources">
+                            <field name="resource_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Add Ons">
+                            <field name="add_on_ids" mode="list">
+                                <list>
+                                    <field name="add_on_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Staff Unavailability -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_staff_unavailability_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.unavailability.list</field>
+        <field name="model">mindbody.staff.unavailability</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="staff_id"/>
+                <field name="unavailability_id"/>
+                <field name="start_date_time"/>
+                <field name="end_date_time"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_staff_unavailability_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.unavailability.form</field>
+        <field name="model">mindbody.staff.unavailability</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="staff_id"/>
+                        <field name="unavailability_id"/>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--        Staff Availability - List & Form View                   -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <record id="view_mindbody_staff_availability_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.availability.list</field>
+        <field name="model">mindbody.staff.availability</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="staff_id"/>
+                <field name="availability_id"/>
+                <field name="start_date_time"/>
+                <field name="end_date_time"/>
+                <field name="location_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================ -->
+    <!--         Staff Availability - Form View            -->
+    <!-- ================================================ -->
+
+    <record id="view_mindbody_staff_availability_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.availability.form</field>
+        <field name="model">mindbody.staff.availability</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="staff_id"/>
+                            <field name="availability_id"/>
+                            <field name="staff_obj"/>
+                            <field name="session_type_id"/>
+                        </group>
+
+                        <group string="Timing &amp; Location">
+                            <field name="start_date_time"/>
+                            <field name="end_date_time"/>
+                            <field name="bookable_end_date_time"/>
+                            <field name="location_id"/>
+                            <field name="prep_time"/>
+                            <field name="finish_time"/>
+                        </group>
+
+                        <group string="Visibility &amp; Settings">
+                            <field name="is_masked"/>
+                            <field name="show_public"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Programs">
+                            <field name="program_ids" mode="list">
+                                <list>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Resource Availabilities">
+                            <field name="resource_availability_ids" mode="list">
+                                <list>
+                                    <field name="resource_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="end_date_time"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--        Staff Session Type - List & Form View                  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <record id="view_mindbody_staff_session_type_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.session.type.list</field>
+        <field name="model">mindbody.staff.session.type</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+              -->
+                </header>
+                <field name="staff_id"/>
+                <field name="session_type_id"/>
+                <field name="name"/>
+                <field name="time_length"/>
+                <field name="pay_rate_amount"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================ -->
+    <!--         Staff Session Type - Form View            -->
+    <!-- ================================================ -->
+
+    <record id="view_mindbody_staff_session_type_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.session.type.form</field>
+        <field name="model">mindbody.staff.session.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="staff_id"/>
+                            <field name="session_type_id"/>
+                            <field name="staff_id_int"/>
+                            <field name="session_type"/>
+                            <field name="external_id"/>
+                            <field name="name"/>
+                        </group>
+
+                        <group string="Program &amp; Category">
+                            <field name="num_deducted"/>
+                            <field name="program_id"/>
+                            <field name="category"/>
+                            <field name="category_id"/>
+                            <field name="subcategory"/>
+                            <field name="subcategory_id"/>
+                        </group>
+
+                        <group string="Timing &amp; Payment">
+                            <field name="time_length"/>
+                            <field name="prep_time"/>
+                            <field name="finish_time"/>
+                            <field name="pay_rate_type"/>
+                            <field name="pay_rate_amount"/>
+                        </group>
+
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- User Group -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_user_group_tree" model="ir.ui.view">
+        <field name="name">mindbody.user.group.list</field>
+        <field name="model">mindbody.user.group</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="staff_id"/>
+                <field name="permission_group_name"/>
+                <field name="ip_restricted"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_user_group_form" model="ir.ui.view">
+        <field name="name">mindbody.user.group.form</field>
+        <field name="model">mindbody.user.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="staff_id"/>
+                        <field name="permission_group_name"/>
+                        <field name="ip_restricted"/>
+                    </group>
+                    <notebook>
+                        <page string="Allowed Permissions">
+                            <field name="allowed_permission_ids" mode="list">
+                                <list>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Denied Permissions">
+                            <field name="denied_permission_ids" mode="list">
+                                <list>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Permission -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_permission_tree" model="ir.ui.view">
+        <field name="name">mindbody.permission.list</field>
+        <field name="model">mindbody.permission</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_permission_form" model="ir.ui.view">
+        <field name="name">mindbody.permission.form</field>
+        <field name="model">mindbody.permission</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="user_group_allowed_id"/>
+                        <field name="user_group_denied_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Staff Sales Rep -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_staff_sales_rep_tree" model="ir.ui.view">
+        <field name="name">mindbody.staff.sales.rep.list</field>
+        <field name="model">mindbody.staff.sales.rep</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="staff_id"/>
+                <field name="external_id"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_staff_sales_rep_form" model="ir.ui.view">
+        <field name="name">mindbody.staff.sales.rep.form</field>
+        <field name="model">mindbody.staff.sales.rep</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="staff_id"/>
+                        <field name="external_id"/>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                        <field name="sales_rep_numbers"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_mindbody_staff" model="ir.actions.act_window">
+        <field name="name">Staff</field>
+        <field name="res_model">mindbody.staff</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_settings" model="ir.actions.act_window">
+        <field name="name">Staff Settings</field>
+        <field name="res_model">mindbody.staff.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_appointment" model="ir.actions.act_window">
+        <field name="name">Staff Appointments</field>
+        <field name="res_model">mindbody.staff.appointment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_unavailability" model="ir.actions.act_window">
+        <field name="name">Staff Unavailabilities</field>
+        <field name="res_model">mindbody.staff.unavailability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_availability" model="ir.actions.act_window">
+        <field name="name">Staff Availabilities</field>
+        <field name="res_model">mindbody.staff.availability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_session_type" model="ir.actions.act_window">
+        <field name="name">Staff Session Types</field>
+        <field name="res_model">mindbody.staff.session.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_user_group" model="ir.actions.act_window">
+        <field name="name">User Groups</field>
+        <field name="res_model">mindbody.user.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_permission" model="ir.actions.act_window">
+        <field name="name">Permissions</field>
+        <field name="res_model">mindbody.permission</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_staff_sales_rep" model="ir.actions.act_window">
+        <field name="name">Staff Sales Reps</field>
+        <field name="res_model">mindbody.staff.sales.rep</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Items -->
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="view_session_type_wizard_form" model="ir.ui.view">
+        <field name="name">session.type.selection.wizard.form</field>
+        <field name="model">session.type.selection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Session Types">
+                <group>
+                    <field name="session_type_ids" widget="many2many_tags"/>
+                    <field name="limit"/>
+                    <field name="bookable_item_ids"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Sync" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

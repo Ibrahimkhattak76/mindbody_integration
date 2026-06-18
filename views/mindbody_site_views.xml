@@ -1,0 +1,1157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Site -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_site_tree" model="ir.ui.view">
+        <field name="name">mindbody.site.list</field>
+        <field name="model">mindbody.site</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="site_id"/>
+                <field name="name"/>
+                <field name="contact_email"/>
+                <field name="currency_iso_code"/>
+                <field name="country_code"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_site_form" model="ir.ui.view">
+        <field name="name">mindbody.site.form</field>
+        <field name="model">mindbody.site</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="site_id"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="contact_email"/>
+                        <field name="logo_url"/>
+                        <field name="currency_iso_code"/>
+                        <field name="country_code"/>
+                        <field name="time_zone"/>
+                        <field name="pricing_level"/>
+                        <field name="activation_code"/>
+                        <field name="activation_link"/>
+                        <field name="liability_waiver"/>
+                    </group>
+                    <group string="Payment Acceptance">
+                        <field name="accepts_american_express"/>
+                        <field name="accepts_discover"/>
+                        <field name="accepts_master_card"/>
+                        <field name="accepts_visa"/>
+                        <field name="accepts_direct_debit"/>
+                    </group>
+                    <group string="Settings">
+                        <field name="allows_dashboard_access"/>
+                        <field name="sms_package_enabled"/>
+                        <field name="tax_inclusive_prices"/>
+                        <field name="per_staff_pricing"/>
+                    </group>
+                    <group string="Branding">
+                        <field name="page_color1"/>
+                        <field name="page_color2"/>
+                        <field name="page_color3"/>
+                        <field name="page_color4"/>
+                    </group>
+                    <notebook>
+                        <page string="Lead Channels">
+                            <field name="lead_channel_ids" mode="list">
+                                <list>
+                                    <field name="lead_channel_id"/>
+                                    <field name="name"/>
+                                    <field name="salespipeline_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Lead Channel -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_lead_channel_tree" model="ir.ui.view">
+        <field name="name">mindbody.lead.channel.list</field>
+        <field name="model">mindbody.lead.channel</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="site_id"/>
+                <field name="lead_channel_id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_lead_channel_form" model="ir.ui.view">
+        <field name="name">mindbody.lead.channel.form</field>
+        <field name="model">mindbody.lead.channel</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="site_id"/>
+                        <field name="lead_channel_id"/>
+                        <field name="name"/>
+                        <field name="salespipeline_id"/>
+                        <field name="universal_customer_id"/>
+                        <field name="studio_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Location -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_location_tree" model="ir.ui.view">
+        <field name="name">mindbody.location.list</field>
+        <field name="model">mindbody.location</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="location_id"/>
+                <field name="name"/>
+                <field name="city"/>
+                <field name="state_prov_code"/>
+                <field name="has_classes"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_location_form" model="ir.ui.view">
+        <field name="name">mindbody.location.form</field>
+        <field name="model">mindbody.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="location_id"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="business_description"/>
+                            <field name="site_id"/>
+                        </group>
+                        <group string="Address">
+                            <field name="address"/>
+                            <field name="address2"/>
+                            <field name="city"/>
+                            <field name="state_prov_code"/>
+                            <field name="postal_code"/>
+                            <field name="country"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                        <group string="Contact">
+                            <field name="phone"/>
+                            <field name="phone_extension"/>
+                            <field name="email"/>
+                        </group>
+                        <group string="Taxes">
+                            <field name="tax1"/>
+                            <field name="tax2"/>
+                            <field name="tax3"/>
+                            <field name="tax4"/>
+                            <field name="tax5"/>
+                            <field name="label_tax1"/>
+                            <field name="label_tax2"/>
+                            <field name="label_tax3"/>
+                            <field name="label_tax4"/>
+                            <field name="label_tax5"/>
+                        </group>
+                        <group string="Ratings">
+                            <field name="total_number_of_ratings"/>
+                            <field name="average_rating"/>
+                            <field name="total_number_of_deals"/>
+                        </group>
+                        <group string="Features">
+                            <field name="has_classes"/>
+                            <field name="has_site"/>
+                            <field name="can_book"/>
+                            <field name="active"/>
+                            <field name="ws_show"/>
+                            <field name="tax_grouping"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Amenities">
+                            <field name="amenity_ids" mode="list">
+                                <list>
+                                    <field name="amenity_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Images">
+                            <group>
+                                <group string="Main">
+                                    <field name="main_image" widget="image" options="{'size': [150, 150]}"/>
+                                </group>
+                                <group string="Main">
+                                    <!-- todo <field name="image_url" widget="image_url" options="{'size': [50, 50]}" alt="Icon"/>-->
+                                    <field name="image_url"/>
+                                </group>
+                                <group string="Additional">
+                                    <field name="additional_image_urls"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Amenity -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_amenity_tree" model="ir.ui.view">
+        <field name="name">mindbody.amenity.list</field>
+        <field name="model">mindbody.amenity</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="location_id"/>
+                <field name="amenity_id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_amenity_form" model="ir.ui.view">
+        <field name="name">mindbody.amenity.form</field>
+        <field name="model">mindbody.amenity</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="location_id"/>
+                        <field name="amenity_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Program -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_program_tree" model="ir.ui.view">
+        <field name="name">mindbody.program.list</field>
+        <field name="model">mindbody.program</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="program_id"/>
+                <field name="name"/>
+                <field name="schedule_type"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_program_form" model="ir.ui.view">
+        <field name="name">mindbody.program.form</field>
+        <field name="model">mindbody.program</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="program_id"/>
+                        <field name="name"/>
+                        <field name="schedule_type"/>
+                        <field name="content_format"/>
+                        <field name="cancel_offset"/>
+                        <field name="schedule_offset"/>
+                        <field name="schedule_offset_end"/>
+                        <field name="online_booking_disabled"/>
+                        <field name="content_formats"/>
+                        <field name="pricing_relationship_id"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Pricing Relationship -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_pricing_relationship_tree" model="ir.ui.view">
+        <field name="name">mindbody.pricing.relationship.list</field>
+        <field name="model">mindbody.pricing.relationship</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="program_id"/>
+                <field name="pays_for"/>
+                <field name="paid_by"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_pricing_relationship_form" model="ir.ui.view">
+        <field name="name">mindbody.pricing.relationship.form</field>
+        <field name="model">mindbody.pricing.relationship</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="program_id"/>
+                        <field name="pays_for"/>
+                        <field name="paid_by"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Session Type -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_session_type_tree" model="ir.ui.view">
+        <field name="name">mindbody.session.type.list</field>
+        <field name="model">mindbody.session.type</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="session_type_id"/>
+                <field name="name"/>
+                <field name="session_type"/>
+                <field name="default_time_length"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_session_type_form" model="ir.ui.view">
+        <field name="name">mindbody.session.type.form</field>
+        <field name="model">mindbody.session.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="session_type_id"/>
+                        <field name="name"/>
+                        <field name="session_type"/>
+                        <field name="default_time_length"/>
+                        <field name="staff_time_length"/>
+                        <field name="online_description"/>
+                        <field name="num_deducted"/>
+                        <field name="program_id"/>
+                        <field name="category"/>
+                        <field name="category_id"/>
+                        <field name="subcategory"/>
+                        <field name="subcategory_id"/>
+                        <field name="available_for_add_on"/>
+                        <field name="active"/>
+                        <field name="capacity"/>
+                        <field name="resource_required"/>
+                        <field name="category_obj_id"/>
+                        <field name="subcategory_obj_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Category -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_category_tree" model="ir.ui.view">
+        <field name="name">mindbody.category.list</field>
+        <field name="model">mindbody.category</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="category_id"/>
+                <field name="category_name"/>
+                <field name="active"/>
+                <field name="service"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_category_form" model="ir.ui.view">
+        <field name="name">mindbody.category.form</field>
+        <field name="model">mindbody.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="category_id"/>
+                        <field name="category_name"/>
+                        <field name="description"/>
+                        <field name="service"/>
+                        <field name="active"/>
+                        <field name="is_primary"/>
+                        <field name="is_secondary"/>
+                        <field name="created_date_time_utc"/>
+                        <field name="modified_date_time_utc"/>
+                        <field name="total_count"/>
+                    </group>
+                    <notebook>
+                        <page string="Sub Categories">
+                            <field name="sub_category_ids" mode="list">
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Sub Category -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_sub_category_tree" model="ir.ui.view">
+        <field name="name">mindbody.sub.category.list</field>
+        <field name="model">mindbody.sub.category</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="category_id"/>
+                <field name="sub_category_id"/>
+                <field name="sub_category_name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_sub_category_form" model="ir.ui.view">
+        <field name="name">mindbody.sub.category.form</field>
+        <field name="model">mindbody.sub.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="category_id"/>
+                        <field name="sub_category_id"/>
+                        <field name="sub_category_name"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Gender Option -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_gender_tree" model="ir.ui.view">
+        <field name="name">mindbody.gender.list</field>
+        <field name="model">mindbody.gender</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="gender_id"/>
+                <field name="name"/>
+                <field name="is_active"/>
+                <field name="is_default"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_gender_form" model="ir.ui.view">
+        <field name="name">mindbody.gender.form</field>
+        <field name="model">mindbody.gender</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="gender_id"/>
+                        <field name="name"/>
+                        <field name="is_active"/>
+                        <field name="is_default"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Membership -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_membership_tree" model="ir.ui.view">
+        <field name="name">mindbody.membership.list</field>
+        <field name="model">mindbody.membership</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+                </header>
+                <field name="membership_id"/>
+                <field name="membership_name"/>
+                <field name="is_active"/>
+                <field name="priority"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_membership_form" model="ir.ui.view">
+        <field name="name">mindbody.membership.form</field>
+        <field name="model">mindbody.membership</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Information">
+                            <field name="membership_id"/>
+                            <field name="membership_name"/>
+                            <field name="priority"/>
+                            <field name="member_retail_discount"/>
+                            <field name="member_service_discount"/>
+                            <field name="is_active"/>
+                            <field name="early_access_days_before_scheduling_window"/>
+                        </group>
+                        <group string="Settings">
+                            <field name="allow_clients_to_schedule_unpaid"/>
+                            <field name="allow_members_to_book_appointments_without_paying"/>
+                            <field name="allow_members_to_purchase_non_members_services"/>
+                            <field name="allow_members_to_purchase_non_members_products"/>
+                            <field name="restrict_self_sign_in_to_members_only"/>
+                            <field name="day_of_month_scheduling_opens_for_next_month"/>
+                        </group>
+                        <group>
+                            <field name="online_booking_restricted_to_members_only"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Mobile Provider -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_mobile_provider_tree" model="ir.ui.view">
+        <field name="name">mindbody.mobile.provider.list</field>
+        <field name="model">mindbody.mobile.provider</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="provider_id"/>
+                <field name="provider_name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_mobile_provider_form" model="ir.ui.view">
+        <field name="name">mindbody.mobile.provider.form</field>
+        <field name="model">mindbody.mobile.provider</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="provider_id"/>
+                        <field name="provider_name"/>
+                        <field name="provider_address"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Payment Type -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_payment_type_tree" model="ir.ui.view">
+        <field name="name">mindbody.payment.type.list</field>
+        <field name="model">mindbody.payment.type</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="payment_type_id"/>
+                <field name="payment_type_name"/>
+                <field name="active"/>
+                <field name="fee"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_payment_type_form" model="ir.ui.view">
+        <field name="name">mindbody.payment.type.form</field>
+        <field name="model">mindbody.payment.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="payment_type_id"/>
+                        <field name="payment_type_name"/>
+                        <field name="active"/>
+                        <field name="fee"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Promo Code -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_promo_code_tree" model="ir.ui.view">
+        <field name="name">mindbody.promo.code.list</field>
+        <field name="model">mindbody.promo.code</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="promotion_id"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_promo_code_form" model="ir.ui.view">
+        <field name="name">mindbody.promo.code.form</field>
+        <field name="model">mindbody.promo.code</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="promotion_id"/>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="active"/>
+                            <field name="discount_id"/>
+                            <field name="activation_date"/>
+                            <field name="expiration_date"/>
+                        </group>
+                        <group>
+                            <field name="max_uses"/>
+                            <field name="number_of_autopays"/>
+                            <field name="days_after_close_date"/>
+                            <field name="days_valid"/>
+                            <field name="allow_online"/>
+                            <field name="last_modified_date_time"/>
+                            <field name="pagination_response_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Applicable Items -->
+                    <notebook>
+                        <page string="Applicable Items">
+                            <field name="applicable_item_ids" mode="list">
+                                <list>
+                                    <field name="item_type"/>
+                                    <field name="item_id"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Discount -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_discount_tree" model="ir.ui.view">
+        <field name="name">mindbody.discount.list</field>
+        <field name="model">mindbody.discount</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="discount_type"/>
+                <field name="amount"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_discount_form" model="ir.ui.view">
+        <field name="name">mindbody.discount.form</field>
+        <field name="model">mindbody.discount</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="discount_type"/>
+                        <field name="amount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Promo Applicable Item -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_promo_applicable_item_tree" model="ir.ui.view">
+        <field name="name">mindbody.promo.applicable.item.list</field>
+        <field name="model">mindbody.promo.applicable.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="promo_code_id"/>
+                <field name="item_type"/>
+                <field name="item_id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_promo_applicable_item_form" model="ir.ui.view">
+        <field name="name">mindbody.promo.applicable.item.form</field>
+        <field name="model">mindbody.promo.applicable.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="promo_code_id"/>
+                        <field name="item_type"/>
+                        <field name="item_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Prospect Stage -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_prospect_stage_tree" model="ir.ui.view">
+        <field name="name">mindbody.prospect.stage.list</field>
+        <field name="model">mindbody.prospect.stage</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="stage_id"/>
+                <field name="description"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_prospect_stage_form" model="ir.ui.view">
+        <field name="name">mindbody.prospect.stage.form</field>
+        <field name="model">mindbody.prospect.stage</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="stage_id"/>
+                        <field name="description"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Relationship -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_relationship_tree" model="ir.ui.view">
+        <field name="name">mindbody.relationship.list</field>
+        <field name="model">mindbody.relationship</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="relationship_id"/>
+                <field name="relationship_name1"/>
+                <field name="relationship_name2"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_relationship_form" model="ir.ui.view">
+        <field name="name">mindbody.relationship.form</field>
+        <field name="model">mindbody.relationship</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="relationship_id"/>
+                        <field name="relationship_name1"/>
+                        <field name="relationship_name2"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Resource -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_resource_tree" model="ir.ui.view">
+        <field name="name">mindbody.resource.list</field>
+        <field name="model">mindbody.resource</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="resource_id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_resource_form" model="ir.ui.view">
+        <field name="name">mindbody.resource.form</field>
+        <field name="model">mindbody.resource</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="resource_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Resource Availability -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_resource_availability_tree" model="ir.ui.view">
+        <field name="name">mindbody.resource.availability.list</field>
+        <field name="model">mindbody.resource.availability</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="resource_id"/>
+                <field name="start_date_time"/>
+                <field name="end_date_time"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_resource_availability_form" model="ir.ui.view">
+        <field name="name">mindbody.resource.availability.form</field>
+        <field name="model">mindbody.resource.availability</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="resource_id"/>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="session_type_ids"/>
+                        <field name="program_ids"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Activation Code -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_activation_code_tree" model="ir.ui.view">
+        <field name="name">mindbody.activation.code.list</field>
+        <field name="model">mindbody.activation.code</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="site_id"/>
+                <field name="activation_code"/>
+                <field name="activation_link"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_activation_code_form" model="ir.ui.view">
+        <field name="name">mindbody.activation.code.form</field>
+        <field name="model">mindbody.activation.code</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="site_id"/>
+                        <field name="activation_code"/>
+                        <field name="activation_link"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Liability Waiver -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_liability_waiver_tree" model="ir.ui.view">
+        <field name="name">mindbody.liability.waiver.list</field>
+        <field name="model">mindbody.liability.waiver</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="site_id"/>
+                <field name="liability_waiver"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_liability_waiver_form" model="ir.ui.view">
+        <field name="name">mindbody.liability.waiver.form</field>
+        <field name="model">mindbody.liability.waiver</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="site_id"/>
+                        <field name="liability_waiver"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Client Index -->
+    <!-- ============================================ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--        Client Index - List & Form View                        -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <record id="view_mindbody_client_index_tree" model="ir.ui.view">
+        <field name="name">mindbody.client.index.list</field>
+        <field name="model">mindbody.client.index</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+              -->
+                </header>
+                <field name="client_index_id"/>
+                <field name="name"/>
+                <field name="required_business_mode"/>
+                <field name="required_consumer_mode"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================================ -->
+    <!--         Client Index - Form View                 -->
+    <!-- ================================================ -->
+
+    <record id="view_mindbody_client_index_form" model="ir.ui.view">
+        <field name="name">mindbody.client.index.form</field>
+        <field name="model">mindbody.client.index</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="client_index_id"/>
+                            <field name="name"/>
+                            <field name="required_business_mode"/>
+                            <field name="required_consumer_mode"/>
+                        </group>
+
+                        <group string="Settings">
+                            <field name="show_on_new_client"/>
+                            <field name="show_on_enrollment_roster"/>
+                            <field name="edit_on_enrollment_roster"/>
+                            <field name="sort_order"/>
+                            <field name="show_in_consumer_mode"/>
+                            <field name="action"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Values">
+                            <field name="value_ids" mode="list">
+                                <list>
+                                    <field name="value_id"/>
+                                    <field name="name"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Client Index Value -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_client_index_value_tree" model="ir.ui.view">
+        <field name="name">mindbody.client.index.value.list</field>
+        <field name="model">mindbody.client.index.value</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="client_index_id"/>
+                <field name="value_id"/>
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_client_index_value_form" model="ir.ui.view">
+        <field name="name">mindbody.client.index.value.form</field>
+        <field name="model">mindbody.client.index.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="client_index_id"/>
+                        <field name="value_id"/>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_site" model="ir.actions.act_window">
+        <field name="name">Sites</field>
+        <field name="res_model">mindbody.site</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_lead_channel" model="ir.actions.act_window">
+        <field name="name">Lead Channels</field>
+        <field name="res_model">mindbody.lead.channel</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_location" model="ir.actions.act_window">
+        <field name="name">Locations</field>
+        <field name="res_model">mindbody.location</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_amenity" model="ir.actions.act_window">
+        <field name="name">Amenities</field>
+        <field name="res_model">mindbody.amenity</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_program" model="ir.actions.act_window">
+        <field name="name">Programs</field>
+        <field name="res_model">mindbody.program</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_pricing_relationship" model="ir.actions.act_window">
+        <field name="name">Pricing Relationships</field>
+        <field name="res_model">mindbody.pricing.relationship</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_session_type" model="ir.actions.act_window">
+        <field name="name">Session Types</field>
+        <field name="res_model">mindbody.session.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_category" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">mindbody.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_sub_category" model="ir.actions.act_window">
+        <field name="name">Sub Categories</field>
+        <field name="res_model">mindbody.sub.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_gender" model="ir.actions.act_window">
+        <field name="name">Gender Options</field>
+        <field name="res_model">mindbody.gender</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_membership" model="ir.actions.act_window">
+        <field name="name">Memberships</field>
+        <field name="res_model">mindbody.membership</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_mobile_provider" model="ir.actions.act_window">
+        <field name="name">Mobile Providers</field>
+        <field name="res_model">mindbody.mobile.provider</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_payment_type" model="ir.actions.act_window">
+        <field name="name">Payment Types</field>
+        <field name="res_model">mindbody.payment.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_promo_code" model="ir.actions.act_window">
+        <field name="name">Promo Codes</field>
+        <field name="res_model">mindbody.promo.code</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_discount" model="ir.actions.act_window">
+        <field name="name">Discounts</field>
+        <field name="res_model">mindbody.discount</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_promo_applicable_item" model="ir.actions.act_window">
+        <field name="name">Promo Applicable Items</field>
+        <field name="res_model">mindbody.promo.applicable.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_prospect_stage" model="ir.actions.act_window">
+        <field name="name">Prospect Stages</field>
+        <field name="res_model">mindbody.prospect.stage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_relationship" model="ir.actions.act_window">
+        <field name="name">Relationships</field>
+        <field name="res_model">mindbody.relationship</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_resource" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="res_model">mindbody.resource</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_resource_availability" model="ir.actions.act_window">
+        <field name="name">Resource Availabilities</field>
+        <field name="res_model">mindbody.resource.availability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_activation_code" model="ir.actions.act_window">
+        <field name="name">Activation Codes</field>
+        <field name="res_model">mindbody.activation.code</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_liability_waiver" model="ir.actions.act_window">
+        <field name="name">Liability Waivers</field>
+        <field name="res_model">mindbody.liability.waiver</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_client_index" model="ir.actions.act_window">
+        <field name="name">Client Indexes</field>
+        <field name="res_model">mindbody.client.index</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_client_index_value" model="ir.actions.act_window">
+        <field name="name">Client Index Values</field>
+        <field name="res_model">mindbody.client.index.value</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

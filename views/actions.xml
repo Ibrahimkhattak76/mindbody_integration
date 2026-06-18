@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Action Definitions for Missing Actions -->
+    <!-- ============================================ -->
+
+    <!-- Client Class Action -->
+    <record id="action_mindbody_client_class" model="ir.actions.act_window">
+        <field name="name">Client Classes</field>
+        <field name="res_model">mindbody.client.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Level Action -->
+    <record id="action_mindbody_class_level" model="ir.actions.act_window">
+        <field name="name">Class Levels</field>
+        <field name="res_model">mindbody.class.level</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Booking Window Action -->
+    <record id="action_mindbody_booking_window" model="ir.actions.act_window">
+        <field name="name">Booking Windows</field>
+        <field name="res_model">mindbody.booking.window</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Cart Action -->
+    <record id="action_mindbody_class_cart" model="ir.actions.act_window">
+        <field name="name">Class Carts</field>
+        <field name="res_model">mindbody.class.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Visit Cart Action -->
+    <record id="action_mindbody_visit_cart" model="ir.actions.act_window">
+        <field name="name">Visit Carts</field>
+        <field name="res_model">mindbody.visit.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Appointment Cart Action -->
+    <record id="action_mindbody_appointment_cart" model="ir.actions.act_window">
+        <field name="name">Appointment Carts</field>
+        <field name="res_model">mindbody.appointment.cart</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Cart Item Action -->
+    <record id="action_mindbody_cart_item" model="ir.actions.act_window">
+        <field name="name">Cart Items</field>
+        <field name="res_model">mindbody.cart.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Appointment Add On Action -->
+    <record id="action_mindbody_appointment_add_on" model="ir.actions.act_window">
+        <field name="name">Appointment Add Ons</field>
+        <field name="res_model">mindbody.appointment.add.on</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Appointment Resource Action -->
+    <record id="action_mindbody_appointment_resource" model="ir.actions.act_window">
+        <field name="name">Appointment Resources</field>
+        <field name="res_model">mindbody.appointment.resource</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Active Session Time Action -->
+    <record id="action_mindbody_active_session_time" model="ir.actions.act_window">
+        <field name="name">Active Session Times</field>
+        <field name="res_model">mindbody.active.session.time</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Appointment Option Action -->
+    <record id="action_mindbody_appointment_option" model="ir.actions.act_window">
+        <field name="name">Appointment Options</field>
+        <field name="res_model">mindbody.appointment.option</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Available Date Action -->
+    <record id="action_mindbody_available_date" model="ir.actions.act_window">
+        <field name="name">Available Dates</field>
+        <field name="res_model">mindbody.available.date</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Settings Action -->
+    <record id="action_mindbody_staff_settings" model="ir.actions.act_window">
+        <field name="name">Staff Settings</field>
+        <field name="res_model">mindbody.staff.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Sales Rep Action -->
+    <record id="action_mindbody_staff_sales_rep" model="ir.actions.act_window">
+        <field name="name">Staff Sales Reps</field>
+        <field name="res_model">mindbody.staff.sales.rep</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- User Group Action -->
+    <record id="action_mindbody_user_group" model="ir.actions.act_window">
+        <field name="name">User Groups</field>
+        <field name="res_model">mindbody.user.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Permission Action -->
+    <record id="action_mindbody_permission" model="ir.actions.act_window">
+        <field name="name">Permissions</field>
+        <field name="res_model">mindbody.permission</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pricing Relationship Action -->
+    <record id="action_mindbody_pricing_relationship" model="ir.actions.act_window">
+        <field name="name">Pricing Relationships</field>
+        <field name="res_model">mindbody.pricing.relationship</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Amenity Action -->
+    <record id="action_mindbody_amenity" model="ir.actions.act_window">
+        <field name="name">Amenities</field>
+        <field name="res_model">mindbody.amenity</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Activation Code Action -->
+    <record id="action_mindbody_activation_code" model="ir.actions.act_window">
+        <field name="name">Activation Codes</field>
+        <field name="res_model">mindbody.activation.code</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Liability Waiver Action -->
+    <record id="action_mindbody_liability_waiver" model="ir.actions.act_window">
+        <field name="name">Liability Waivers</field>
+        <field name="res_model">mindbody.liability.waiver</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pagination Details Action -->
+    <record id="action_mindbody_pagination_details" model="ir.actions.act_window">
+        <field name="name">Pagination Details</field>
+        <field name="res_model">mindbody.pagination.details</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Response Details Action -->
+    <record id="action_mindbody_response_details" model="ir.actions.act_window">
+        <field name="name">Response Details</field>
+        <field name="res_model">mindbody.response.details</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- Client Suspension Info Action -->
+    <record id="action_mindbody_client_suspension_info" model="ir.actions.act_window">
+        <field name="name">Client Suspension Info</field>
+        <field name="res_model">mindbody.client.suspension.info</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Credit Card Action -->
+    <record id="action_mindbody_client_credit_card" model="ir.actions.act_window">
+        <field name="name">Client Credit Cards</field>
+        <field name="res_model">mindbody.client.credit.card</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Duplicate Action -->
+    <record id="action_mindbody_client_duplicate" model="ir.actions.act_window">
+        <field name="name">Client Duplicates</field>
+        <field name="res_model">mindbody.client.duplicate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Formula Note Action -->
+    <record id="action_mindbody_formula_note" model="ir.actions.act_window">
+        <field name="name">Formula Notes</field>
+        <field name="res_model">mindbody.formula.note</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Cross Regional Association Action -->
+    <record id="action_mindbody_cross_regional_association" model="ir.actions.act_window">
+        <field name="name">Cross Regional Associations</field>
+        <field name="res_model">mindbody.cross.regional.association</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Required Client Field Action -->
+    <record id="action_mindbody_required_client_field" model="ir.actions.act_window">
+        <field name="name">Required Client Fields</field>
+        <field name="res_model">mindbody.required.client.field</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Waitlist Info Action -->
+    <record id="action_mindbody_waitlist_info" model="ir.actions.act_window">
+        <field name="name">Waitlist Info</field>
+        <field name="res_model">mindbody.waitlist.info</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Type Action -->
+    <record id="action_mindbody_client_type" model="ir.actions.act_window">
+        <field name="name">Client Types</field>
+        <field name="res_model">mindbody.client.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Reward Transaction Action -->
+    <record id="action_mindbody_client_reward_transaction" model="ir.actions.act_window">
+        <field name="name">Client Reward Transactions</field>
+        <field name="res_model">mindbody.client.reward.transaction</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Upcoming Autopay Event Action -->
+    <record id="action_mindbody_upcoming_autopay_event" model="ir.actions.act_window">
+        <field name="name">Upcoming Autopay Events</field>
+        <field name="res_model">mindbody.upcoming.autopay.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Package Service Action -->
+    <record id="action_mindbody_package_service" model="ir.actions.act_window">
+        <field name="name">Package Services</field>
+        <field name="res_model">mindbody.package.service</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Package Product Action -->
+    <record id="action_mindbody_package_product" model="ir.actions.act_window">
+        <field name="name">Package Products</field>
+        <field name="res_model">mindbody.package.product</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Gift Card Layout Action -->
+    <record id="action_mindbody_gift_card_layout" model="ir.actions.act_window">
+        <field name="name">Gift Card Layouts</field>
+        <field name="res_model">mindbody.gift.card.layout</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Price Action -->
+    <record id="action_mindbody_price" model="ir.actions.act_window">
+        <field name="name">Prices</field>
+        <field name="res_model">mindbody.price</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Contact Log Comment Action -->
+    <record id="action_mindbody_contact_log_comment" model="ir.actions.act_window">
+        <field name="name">Contact Log Comments</field>
+        <field name="res_model">mindbody.contact.log.comment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Contact Log Subtype Action -->
+    <record id="action_mindbody_contact_log_subtype" model="ir.actions.act_window">
+        <field name="name">Contact Log Subtypes</field>
+        <field name="res_model">mindbody.contact.log.subtype</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Prospect Stage Action -->
+    <record id="action_mindbody_prospect_stage" model="ir.actions.act_window">
+        <field name="name">Prospect Stages</field>
+        <field name="res_model">mindbody.prospect.stage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Prospect Stage Data Action -->
+    <record id="action_mindbody_prospect_stage_data" model="ir.actions.act_window">
+        <field name="name">Prospect Stage Data</field>
+        <field name="res_model">mindbody.prospect.stage.data</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Home Location Action -->
+    <record id="action_mindbody_home_location" model="ir.actions.act_window">
+        <field name="name">Home Locations</field>
+        <field name="res_model">mindbody.home.location</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Liability Action -->
+    <record id="action_mindbody_liability" model="ir.actions.act_window">
+        <field name="name">Liabilities</field>
+        <field name="res_model">mindbody.liability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Promo Applicable Item Action -->
+    <record id="action_mindbody_promo_applicable_item" model="ir.actions.act_window">
+        <field name="name">Promo Applicable Items</field>
+        <field name="res_model">mindbody.promo.applicable.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Discount Action -->
+    <record id="action_mindbody_discount" model="ir.actions.act_window">
+        <field name="name">Discounts</field>
+        <field name="res_model">mindbody.discount</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Product Color Action -->
+    <record id="action_mindbody_product_color" model="ir.actions.act_window">
+        <field name="name">Product Colors</field>
+        <field name="res_model">mindbody.product.color</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Product Size Action -->
+    <record id="action_mindbody_product_size" model="ir.actions.act_window">
+        <field name="name">Product Sizes</field>
+        <field name="res_model">mindbody.product.size</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Product Inventory Action -->
+    <record id="action_mindbody_product_inventory" model="ir.actions.act_window">
+        <field name="name">Product Inventory</field>
+        <field name="res_model">mindbody.product.inventory</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Visit Action -->
+    <record id="action_mindbody_class_visit" model="ir.actions.act_window">
+        <field name="name">Class Visits</field>
+        <field name="res_model">mindbody.class.visit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Schedule Action -->
+    <record id="action_mindbody_class_schedule" model="ir.actions.act_window">
+        <field name="name">Class Schedules</field>
+        <field name="res_model">mindbody.class.schedule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Instance Action -->
+    <record id="action_mindbody_class_instance" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">mindbody.class.instance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Class Description Action -->
+    <record id="action_mindbody_class_description" model="ir.actions.act_window">
+        <field name="name">Class Descriptions</field>
+        <field name="res_model">mindbody.class.description</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Session Type Action -->
+    <record id="action_mindbody_staff_session_type" model="ir.actions.act_window">
+        <field name="name">Staff Session Types</field>
+        <field name="res_model">mindbody.staff.session.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Availability Action -->
+    <record id="action_mindbody_staff_availability" model="ir.actions.act_window">
+        <field name="name">Staff Availabilities</field>
+        <field name="res_model">mindbody.staff.availability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Unavailability Action -->
+    <record id="action_mindbody_staff_unavailability" model="ir.actions.act_window">
+        <field name="name">Staff Unavailabilities</field>
+        <field name="res_model">mindbody.staff.unavailability</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Staff Appointment Action -->
+    <record id="action_mindbody_staff_appointment" model="ir.actions.act_window">
+        <field name="name">Staff Appointments</field>
+        <field name="res_model">mindbody.staff.appointment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Sales Rep Action -->
+    <record id="action_mindbody_sales_rep" model="ir.actions.act_window">
+        <field name="name">Sales Reps</field>
+        <field name="res_model">mindbody.sales.rep</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Service Action -->
+    <record id="action_mindbody_client_service" model="ir.actions.act_window">
+        <field name="name">Client Services</field>
+        <field name="res_model">mindbody.client.service</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Contract Action -->
+    <record id="action_mindbody_client_contract" model="ir.actions.act_window">
+        <field name="name">Client Contracts</field>
+        <field name="res_model">mindbody.client.contract</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Membership Action -->
+    <record id="action_mindbody_client_membership" model="ir.actions.act_window">
+        <field name="name">Client Memberships</field>
+        <field name="res_model">mindbody.client.membership</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Arrival Action -->
+    <record id="action_mindbody_client_arrival" model="ir.actions.act_window">
+        <field name="name">Client Arrivals</field>
+        <field name="res_model">mindbody.client.arrival</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Client Purchase Action -->
+    <record id="action_mindbody_client_purchase" model="ir.actions.act_window">
+        <field name="name">Client Purchases</field>
+        <field name="res_model">mindbody.client.purchase</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Contact Log Action -->
+    <record id="action_mindbody_contact_log" model="ir.actions.act_window">
+        <field name="name">Contact Logs</field>
+        <field name="res_model">mindbody.contact.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Contact Log Type Action -->
+    <record id="action_mindbody_contact_log_type" model="ir.actions.act_window">
+        <field name="name">Contact Log Types</field>
+        <field name="res_model">mindbody.contact.log.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Course Action -->
+    <record id="action_mindbody_course" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">mindbody.course</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Semester Action -->
+    <record id="action_mindbody_semester" model="ir.actions.act_window">
+        <field name="name">Semesters</field>
+        <field name="res_model">mindbody.semester</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Waitlist Entry Action -->
+    <record id="action_mindbody_waitlist_entry" model="ir.actions.act_window">
+        <field name="name">Waitlist Entries</field>
+        <field name="res_model">mindbody.waitlist.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Enrollment Action -->
+    <record id="action_mindbody_enrollment" model="ir.actions.act_window">
+        <field name="name">Enrollments</field>
+        <field name="res_model">mindbody.enrollment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pick-a-Spot Class Action -->
+    <record id="action_mindbody_pickaspot_class" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Classes</field>
+        <field name="res_model">mindbody.pickaspot.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pick-a-Spot Spots Action -->
+    <record id="action_mindbody_pickaspot_spots" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Spots</field>
+        <field name="res_model">mindbody.pickaspot.spots</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pick-a-Spot Reservation Action -->
+    <record id="action_mindbody_pickaspot_reservation" model="ir.actions.act_window">
+        <field name="name">Pick-a-Spot Reservations</field>
+        <field name="res_model">mindbody.pickaspot.reservation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

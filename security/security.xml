@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Categories -->
+    <record id="module_category_mindbody" model="ir.module.category">
+        <field name="name">Mindbody</field>
+        <field name="description">Mindbody Integration</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Groups -->
+    <record id="group_mindbody_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_mindbody"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Basic read-only access to Mindbody data</field>
+    </record>
+
+    <record id="group_mindbody_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_mindbody"/>
+        <field name="implied_ids" eval="[(4, ref('group_mindbody_user'))]"/>
+        <field name="comment">Can create and edit Mindbody data but cannot delete</field>
+    </record>
+
+    <record id="group_mindbody_admin" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="module_category_mindbody"/>
+        <field name="implied_ids" eval="[(4, ref('group_mindbody_manager'))]"/>
+        <field name="comment">Full access to all Mindbody data including deletion</field>
+    </record>
+
+    <!--    &lt;!&ndash; Record Rules for Multi-company support &ndash;&gt;-->
+    <!--    <record id="mindbody_company_rule" model="ir.rule">-->
+    <!--        <field name="name">Mindbody: Multi-company</field>-->
+    <!--        <field name="model_id" ref="model_mindbody_client"/>-->
+    <!--        <field name="global" eval="True"/>-->
+    <!--        <field name="domain_force">[('company_id', 'in', company_ids)]</field>-->
+    <!--    </record>-->
+
+    <!--    <record id="mindbody_staff_company_rule" model="ir.rule">-->
+    <!--        <field name="name">Mindbody Staff: Multi-company</field>-->
+    <!--        <field name="model_id" ref="model_mindbody_staff"/>-->
+    <!--        <field name="global" eval="True"/>-->
+    <!--        <field name="domain_force">[('company_id', 'in', company_ids)]</field>-->
+    <!--    </record>-->
+
+    <!--    <record id="mindbody_sale_company_rule" model="ir.rule">-->
+    <!--        <field name="name">Mindbody Sale: Multi-company</field>-->
+    <!--        <field name="model_id" ref="model_mindbody_sale"/>-->
+    <!--        <field name="global" eval="True"/>-->
+    <!--        <field name="domain_force">[('company_id', 'in', company_ids)]</field>-->
+    <!--    </record>-->
+</odoo>

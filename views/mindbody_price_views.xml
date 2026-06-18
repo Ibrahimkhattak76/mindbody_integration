@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Price -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_price_tree" model="ir.ui.view">
+        <field name="name">mindbody.price.list</field>
+        <field name="model">mindbody.price</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="total"/>
+                <field name="sub_total"/>
+                <field name="discount"/>
+                <field name="tax"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_price_form" model="ir.ui.view">
+        <field name="name">mindbody.price.form</field>
+        <field name="model">mindbody.price</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="total"/>
+                        <field name="sub_total"/>
+                        <field name="discount"/>
+                        <field name="tax"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_price" model="ir.actions.act_window">
+        <field name="name">Prices</field>
+        <field name="res_model">mindbody.price</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

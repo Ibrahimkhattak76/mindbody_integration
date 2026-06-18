@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Service -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_service_tree" model="ir.ui.view">
+        <field name="name">mindbody.service.list</field>
+        <field name="model">mindbody.service</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+
+                </header>
+                <field name="service_id"/>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="online_price"/>
+                <field name="sell_online"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_service_form" model="ir.ui.view">
+        <field name="name">mindbody.service.form</field>
+        <field name="model">mindbody.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- General Information -->
+                    <group string="General Information">
+                        <group>
+                            <field name="service_id"/>
+                            <field name="name"/>
+                            <field name="price"/>
+                            <field name="online_price"/>
+                            <field name="tax_included"/>
+                            <field name="tax_rate"/>
+                            <field name="program_id"/>
+                            <field name="product_id"/>
+                            <field name="count"/>
+                            <field name="membership_id"/>
+                        </group>
+                        <group>
+                            <field name="sell_online"/>
+                            <field name="sale_in_contract_only"/>
+                            <field name="service_type"/>
+                            <field name="expiration_type"/>
+                            <field name="expiration_unit"/>
+                            <field name="expiration_length"/>
+                            <field name="revenue_category"/>
+                            <field name="priority"/>
+                            <field name="discontinued"/>
+                            <field name="pagination_response_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Intro Offer and Pricing -->
+                    <group string="Intro Offer and Pricing">
+                        <group>
+                            <field name="is_intro_offer"/>
+                            <field name="intro_offer_type"/>
+                        </group>
+                        <group>
+                            <field name="is_third_party_discount_pricing"/>
+                            <field name="program"/>
+                        </group>
+                    </group>
+
+                    <!-- Client Service Fields -->
+                    <group string="Client Service Fields">
+                        <group>
+                            <field name="active_date"/>
+                            <field name="current"/>
+                            <field name="expiration_date"/>
+                            <field name="client_service_id"/>
+                            <field name="payment_date"/>
+                            <field name="remaining"/>
+                        </group>
+                        <group>
+                            <field name="site_id"/>
+                            <field name="client_id"/>
+                            <field name="returned"/>
+                            <field name="activation_type"/>
+                            <field name="cannot_pay_for_classes_before_activation"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_service" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">mindbody.service</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

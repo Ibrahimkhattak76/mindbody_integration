@@ -1,0 +1,676 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- Class Schedule -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_schedule_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.schedule.list</field>
+        <field name="model">mindbody.class.schedule</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_schedule_id"/>
+                <field name="class_description_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="staff_id"/>
+                <field name="location_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_schedule_form" model="ir.ui.view">
+        <field name="name">mindbody.class.schedule.form</field>
+        <field name="model">mindbody.class.schedule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_schedule_id"/>
+                        <field name="class_description_id"/>
+                        <field name="course_id"/>
+                        <field name="semester_id"/>
+                        <field name="staff_id"/>
+                        <field name="location_id"/>
+                        <field name="is_available"/>
+                        <field name="external_id"/>
+                    </group>
+                    <group string="Schedule Days">
+                        <field name="day_sunday"/>
+                        <field name="day_monday"/>
+                        <field name="day_tuesday"/>
+                        <field name="day_wednesday"/>
+                        <field name="day_thursday"/>
+                        <field name="day_friday"/>
+                        <field name="day_saturday"/>
+                    </group>
+                    <group string="Schedule Times">
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <group string="Enrollment Settings">
+                        <field name="allow_open_enrollment"/>
+                        <field name="allow_date_forward_enrollment"/>
+                    </group>
+                    <notebook>
+                        <page string="Classes">
+                            <field name="class_ids" mode="list">
+                                <list>
+                                    <field name="class_id"/>
+                                    <field name="start_date_time"/>
+                                    <field name="total_booked"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clients">
+                            <field name="client_ids" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Class Instance -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_instance_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.instance.list</field>
+        <field name="model">mindbody.class.instance</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_id"/>
+                <field name="start_date_time"/>
+                <field name="class_description_id"/>
+                <field name="staff_id"/>
+                <field name="location_id"/>
+                <field name="total_booked"/>
+                <field name="is_canceled"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_instance_form" model="ir.ui.view">
+        <field name="name">mindbody.class.instance.form</field>
+        <field name="model">mindbody.class.instance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_schedule_id"/>
+                        <field name="class_schedule_id_int"/>
+                        <field name="class_id"/>
+                        <field name="location_id"/>
+                        <field name="resource_id"/>
+                        <field name="staff_id"/>
+                        <field name="class_description_id"/>
+                        <field name="booking_window_id"/>
+                    </group>
+                    <group string="Capacity">
+                        <field name="max_capacity"/>
+                        <field name="web_capacity"/>
+                        <field name="total_booked"/>
+                        <field name="total_signed_in"/>
+                        <field name="total_booked_waitlist"/>
+                        <field name="web_booked"/>
+                        <field name="wait_list_size"/>
+                    </group>
+                    <group string="Timing">
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="last_modified_date_time"/>
+                    </group>
+                    <group string="Status">
+                        <field name="is_canceled"/>
+                        <field name="substitute"/>
+                        <field name="active"/>
+                        <field name="is_available"/>
+                        <field name="is_waitlist_available"/>
+                        <field name="is_enrolled"/>
+                        <field name="hide_cancel"/>
+                        <field name="booking_status"/>
+                    </group>
+                    <group>
+                        <field name="semester_id"/>
+                        <field name="virtual_stream_link"/>
+                        <field name="class_notes"/>
+                        <field name="theme_name"/>
+                    </group>
+                    <notebook>
+                        <page string="Visits">
+                            <field name="visit_ids" mode="list">
+                                <list>
+                                    <field name="visit_id"/>
+                                    <field name="client_id"/>
+                                    <field name="signed_in"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clients">
+                            <field name="client_ids" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Class Visit -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_visit_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.visit.list</field>
+        <field name="model">mindbody.class.visit</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_instance_id"/>
+                <field name="visit_id"/>
+                <field name="client_id"/>
+                <field name="start_date_time"/>
+                <field name="signed_in"/>
+                <field name="late_cancelled"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_visit_form" model="ir.ui.view">
+        <field name="name">mindbody.class.visit.form</field>
+        <field name="model">mindbody.class.visit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_instance_id"/>
+                        <field name="appointment_id"/>
+                        <field name="appointment_gender_preference"/>
+                        <field name="appointment_status"/>
+                        <field name="class_id"/>
+                        <field name="client_id"/>
+                        <field name="client_photo_url"/>
+                        <field name="client_unique_id"/>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="visit_id"/>
+                        <field name="last_modified_date_time"/>
+                        <field name="late_cancelled"/>
+                        <field name="site_id"/>
+                        <field name="location_id"/>
+                        <field name="make_up"/>
+                        <field name="name"/>
+                        <field name="service_id"/>
+                        <field name="service_name"/>
+                        <field name="service_id_ref"/>
+                        <field name="product_id"/>
+                        <field name="signed_in"/>
+                        <field name="staff_id"/>
+                        <field name="web_signup"/>
+                        <field name="action"/>
+                        <field name="missed"/>
+                        <field name="visit_type"/>
+                        <field name="type_group"/>
+                        <field name="type_taken"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Client Class -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_client_class_tree" model="ir.ui.view">
+        <field name="name">mindbody.client.class.list</field>
+        <field name="model">mindbody.client.class</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="client_id"/>
+                <field name="class_instance_id"/>
+                <field name="visit_id_ref"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_client_class_form" model="ir.ui.view">
+        <field name="name">mindbody.client.class.form</field>
+        <field name="model">mindbody.client.class</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="client_id"/>
+                        <field name="class_instance_id"/>
+                        <field name="visit_id_ref"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Class Description -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_description_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.description.list</field>
+        <field name="model">mindbody.class.description</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_description_id"/>
+                <field name="name"/>
+                <field name="program_id"/>
+                <field name="session_type_id"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_description_form" model="ir.ui.view">
+        <field name="name">mindbody.class.description.form</field>
+        <field name="model">mindbody.class.description</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_description_id"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="notes"/>
+                        <field name="prereq"/>
+                        <field name="active"/>
+                        <field name="image_url"/>
+                        <field name="last_updated"/>
+                        <field name="level_id"/>
+                        <field name="program_id"/>
+                        <field name="session_type_id"/>
+                        <field name="category"/>
+                        <field name="category_id"/>
+                        <field name="subcategory"/>
+                        <field name="subcategory_id"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Class Level -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_class_level_tree" model="ir.ui.view">
+        <field name="name">mindbody.class.level.list</field>
+        <field name="model">mindbody.class.level</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="level_id"/>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_class_level_form" model="ir.ui.view">
+        <field name="name">mindbody.class.level.form</field>
+        <field name="model">mindbody.class.level</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="level_id"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Booking Window -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_booking_window_tree" model="ir.ui.view">
+        <field name="name">mindbody.booking.window.list</field>
+        <field name="model">mindbody.booking.window</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="start_date_time"/>
+                <field name="end_date_time"/>
+                <field name="daily_start_time"/>
+                <field name="daily_end_time"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_booking_window_form" model="ir.ui.view">
+        <field name="name">mindbody.booking.window.form</field>
+        <field name="model">mindbody.booking.window</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="start_date_time"/>
+                        <field name="end_date_time"/>
+                        <field name="daily_start_time"/>
+                        <field name="daily_end_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Course -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_course_tree" model="ir.ui.view">
+        <field name="name">mindbody.course.list</field>
+        <field name="model">mindbody.course</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="course_id"/>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="program_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_course_form" model="ir.ui.view">
+        <field name="name">mindbody.course.form</field>
+        <field name="model">mindbody.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="course_id"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="notes"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="location_id"/>
+                        <field name="organizer_id"/>
+                        <field name="program_id"/>
+                        <field name="image_url"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Semester -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_semester_tree" model="ir.ui.view">
+        <field name="name">mindbody.semester.list</field>
+        <field name="model">mindbody.semester</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="semester_id"/>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_semester_form" model="ir.ui.view">
+        <field name="name">mindbody.semester.form</field>
+        <field name="model">mindbody.semester</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="semester_id"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="multi_registration_discount"/>
+                        <field name="multi_registration_deadline"/>
+                        <field name="active"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Waitlist Entry -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_waitlist_entry_tree" model="ir.ui.view">
+        <field name="name">mindbody.waitlist.entry.list</field>
+        <field name="model">mindbody.waitlist.entry</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="class_date"/>
+                <field name="class_id"/>
+                <field name="class_schedule_id"/>
+                <field name="client_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_waitlist_entry_form" model="ir.ui.view">
+        <field name="name">mindbody.waitlist.entry.form</field>
+        <field name="model">mindbody.waitlist.entry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_date"/>
+                        <field name="class_id"/>
+                        <field name="class_schedule_id"/>
+                        <field name="client_id"/>
+                        <field name="pagination_response_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============================================ -->
+    <!-- Enrollment -->
+    <!-- ============================================ -->
+    <record id="view_mindbody_enrollment_tree" model="ir.ui.view">
+        <field name="name">mindbody.enrollment.list</field>
+        <field name="model">mindbody.enrollment</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <!--<button name="synchronize" string="Sync" type="object" class="btn btn-secondary" display="always"/>
+          -->
+                </header>
+                <field name="enrollment_id"/>
+                <field name="class_description_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="staff_id"/>
+                <field name="location_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mindbody_enrollment_form" model="ir.ui.view">
+        <field name="name">mindbody.enrollment.form</field>
+        <field name="model">mindbody.enrollment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="enrollment_id"/>
+                        <field name="cart_id"/>
+                        <field name="course_id"/>
+                        <field name="course_obj"/>
+                        <field name="class_description_id"/>
+                        <field name="class_description_obj"/>
+                        <field name="staff_id"/>
+                        <field name="staff_obj"/>
+                        <field name="location_id"/>
+                        <field name="location_obj"/>
+                        <field name="semester_id"/>
+                        <field name="semester_id_int"/>
+                        <field name="is_available"/>
+                        <field name="is_available_bool"/>
+                        <field name="external_id"/>
+                        <field name="id_int"/>
+                    </group>
+                    <group string="Schedule Days">
+                        <field name="day_sunday"/>
+                        <field name="day_monday"/>
+                        <field name="day_tuesday"/>
+                        <field name="day_wednesday"/>
+                        <field name="day_thursday"/>
+                        <field name="day_friday"/>
+                        <field name="day_saturday"/>
+                        <field name="day_sunday_bool"/>
+                        <field name="day_monday_bool"/>
+                        <field name="day_tuesday_bool"/>
+                        <field name="day_wednesday_bool"/>
+                        <field name="day_thursday_bool"/>
+                        <field name="day_friday_bool"/>
+                        <field name="day_saturday_bool"/>
+                    </group>
+                    <group string="Schedule Times">
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="start_time_dt"/>
+                        <field name="end_time_dt"/>
+                        <field name="start_date_dt"/>
+                        <field name="end_date_dt"/>
+                    </group>
+                    <group string="Enrollment Settings">
+                        <field name="allow_open_enrollment"/>
+                        <field name="allow_date_forward_enrollment"/>
+                        <field name="allow_open_enrollment_bool"/>
+                        <field name="allow_date_forward_enrollment_bool"/>
+                        <field name="frequency_type"/>
+                        <field name="frequency_interval"/>
+                    </group>
+                    <notebook>
+                        <page string="Classes">
+                            <field name="class_ids" mode="list">
+                                <list>
+                                    <field name="class_id"/>
+                                    <field name="start_date_time"/>
+                                </list>
+                            </field>
+                            <field name="class_instance_ids" mode="list">
+                                <list>
+                                    <field name="class_id"/>
+                                    <field name="start_date_time"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clients">
+                            <field name="client_ids" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                            <field name="clients" mode="list">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="email"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="pagination_response_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Actions -->
+    <record id="action_mindbody_class_schedule" model="ir.actions.act_window">
+        <field name="name">Class Schedules</field>
+        <field name="res_model">mindbody.class.schedule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_class_instance" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">mindbody.class.instance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_class_visit" model="ir.actions.act_window">
+        <field name="name">Class Visits</field>
+        <field name="res_model">mindbody.class.visit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_client_class" model="ir.actions.act_window">
+        <field name="name">Client Classes</field>
+        <field name="res_model">mindbody.client.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_class_description" model="ir.actions.act_window">
+        <field name="name">Class Descriptions</field>
+        <field name="res_model">mindbody.class.description</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_class_level" model="ir.actions.act_window">
+        <field name="name">Class Levels</field>
+        <field name="res_model">mindbody.class.level</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_booking_window" model="ir.actions.act_window">
+        <field name="name">Booking Windows</field>
+        <field name="res_model">mindbody.booking.window</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_course" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">mindbody.course</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_semester" model="ir.actions.act_window">
+        <field name="name">Semesters</field>
+        <field name="res_model">mindbody.semester</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_waitlist_entry" model="ir.actions.act_window">
+        <field name="name">Waitlist Entries</field>
+        <field name="res_model">mindbody.waitlist.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_mindbody_enrollment" model="ir.actions.act_window">
+        <field name="name">Enrollments</field>
+        <field name="res_model">mindbody.enrollment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- Menu Items -->
+</odoo>
